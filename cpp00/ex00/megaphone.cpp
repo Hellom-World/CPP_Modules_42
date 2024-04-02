@@ -13,6 +13,6 @@ int main(int argc, char *argv[]) {
             std::cout << (argv[i + 1] != NULL ? " " : ""); // Adiciona espaço apenas se houver outra palavra
         }
     }
-    std::cout << std::endl; // Quebra de linha após cada frase
+    std::cout << std::endl; // Quebra de linha após cada frase 
     return 0;
 }

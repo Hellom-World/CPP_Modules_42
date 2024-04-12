@@ -2,11 +2,56 @@
 #include <string>
 #include <cctype>
 
+class Contact {
+    // Atributos
+    private:
+        std::string firstName;
+        std::string lastName;
+        std::string nickName;
+        std::string phoneNumber;
+        std::string darkestSecret;
+    public:
+        // Construtores e Destrutores
+        Contact();
+        ~Contact();
+        // Métodos
+        void addContact();
+        void searchContact();
+        void printContact();
+};
+
+void Contact::addContact() {
+    std::cout << "Adicionando contato...\n";
+}
+
+class PhoneBook {
+    // Atributos
+    private:
+        Contact contacts[8];
+    public:
+        // Construtores e Destrutores
+        PhoneBook();
+        ~PhoneBook();
+        // Métodos
+        void addContact();
+        void searchContact();
+        void printContact();
+        void printContacts();
+};
+
+void printMenu() {
+	std::cout <<"\n	**** WELCOME TO PHONEBOOK **** \n" << std::endl;
+	std::cout << "ADD	- to add a new contact" << std::endl;
+	std::cout << "SEARCH	- to search a contact" << std::endl;
+	std::cout << "EXIT	- to exit the phonebook" << std::endl;
+	std::cout << std::string(50, '-') << std::endl;
+}
+
 int main() {
     std::string comando;
 
+    printMenu();
     while (true) {
-        std::cout << "Digite um comando (ADD, SEARCH ou EXIT): ";
         std::cin >> comando;
 
         // Transformar o comando para maiúsculas

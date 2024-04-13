@@ -1,6 +1,7 @@
 #include <iostream> 
 using namespace std;
 
+//EXPLICACAO USO DOS PONTEIROS
 int main() 
 {
     int a = 50;

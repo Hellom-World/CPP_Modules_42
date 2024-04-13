@@ -1,6 +1,7 @@
 #include <iostream> //Biblioteca padrao de C++ de entrada e saida
 using namespace std;
 
+//UTILIZACAO DE OPERADOR FOR E RANGE-FOR
 int main() 
 {
     //C++98 version

@@ -1,0 +1,1 @@
+Esse curso aborda o conceito de programacao orientada a objeto. O foco dessa introducao eh mostrar as funcionalidades mais simples como variaveis, operadores de condicoes e introduz o conceito de classe objeto.

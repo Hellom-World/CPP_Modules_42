@@ -1,0 +1,3 @@
+Sobrecarga de Operadores é a habilidade em linguagens de programação de redefinir o comportamento dos operadores padrão para trabalhar com tipos de dados personalizados, como classes ou estruturas. Isso significa que podemos utilizar operadores familiares, como +, -, *, /, etc., em objetos criados pelo programador, tornando o código mais expressivo e legível.
+
+Ao sobrecarregar operadores, podemos definir como eles devem se comportar quando aplicados a objetos de nossas próprias classes. Por exemplo, podemos definir como a adição (+) deve funcionar para somar objetos de uma classe específica, facilitando a manipulação de dados personalizados e tornando o código mais intuitivo para desenvolvedores.

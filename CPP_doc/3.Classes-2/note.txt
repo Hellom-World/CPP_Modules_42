@@ -1,0 +1,7 @@
+Nessa aula os principais pontos sao os seguintes atributos:
+
+1. A palavra reservada CONST e seu funcionamento principal, ainda com o atributo MUTABLE que possibilita transformar variaveis que aceitam modificacao dentro de uma classe definida como CONST
+
+2. A palavra reservada STATIC, que possibilita acriar variaveis que sao da classe  e sao compartilhada por todos os objetos daquela classe. Na aula existe o exemplo da cricacao de uma variavel STATIC INT que adiciona +1 na contagem toda vez que uma instancia da classe eh criada, possibilitando saber a quantidade de instancias daquela classe esta ativa
+
+3. Por fim temos uma breve explicacao dos tipos e o relcionamento entre as classes e objetos

@@ -1,57 +1,12 @@
-#include <iostream>
-#include <string>
-#include <cctype>
-
-class Contact {
-    // Atributos
-    private:
-        std::string firstName;
-        std::string lastName;
-        std::string nickName;
-        std::string phoneNumber;
-        std::string darkestSecret;
-    public:
-        // Construtores e Destrutores
-        Contact();
-        ~Contact();
-        // Métodos
-        void addContact();
-        void searchContact();
-        void printContact();
-};
-
-void Contact::addContact() {
-    std::cout << "Adicionando contato...\n";
-}
-
-class PhoneBook {
-    // Atributos
-    private:
-        Contact contacts[8];
-    public:
-        // Construtores e Destrutores
-        PhoneBook();
-        ~PhoneBook();
-        // Métodos
-        void addContact();
-        void searchContact();
-        void printContact();
-        void printContacts();
-};
-
-void printMenu() {
-	std::cout <<"\n	**** WELCOME TO PHONEBOOK **** \n" << std::endl;
-	std::cout << "ADD	- to add a new contact" << std::endl;
-	std::cout << "SEARCH	- to search a contact" << std::endl;
-	std::cout << "EXIT	- to exit the phonebook" << std::endl;
-	std::cout << std::string(50, '-') << std::endl;
-}
+#include "Phonebook.hpp"
 
 int main() {
+    PhoneBook   pb;
     std::string comando;
 
-    printMenu();
     while (true) {
+        std::cout << "\n              CONTACTS COUNT [" << pb.getContactsCount() << "]";
+        printMenu();
         std::cin >> comando;
 
         // Transformar o comando para maiúsculas
@@ -60,11 +15,17 @@ int main() {
         }
         // Condições para os comandos
         if (comando == "ADD") {
-            std::cout << "Comando ADD inserido.\n";
-            // Aqui entra a logica para o comando ADD
+            std::cout << "--------------------TAREFAS-------------------------" << std::endl;
+            std::cout << "Fazer tratamento de cada input" << std::endl;
+            std::cout << std::string(50, '-') << std::endl;
+            pb.addContact(); // Aqui entra a logica para o comando ADD
         } else if (comando == "SEARCH") {
-            std::cout << "Comando SEARCH inserido.\n";
-            // Aqui entra a Lógica para o comando SEARCH
+            std::cout << "--------------------TAREFAS-------------------------" << std::endl;
+            std::cout << "Mostrar lista de contato." << std::endl;
+            std::cout << "Pedir o usuario para inserir um index." << std::endl;
+            std::cout << "Mostrar as informacoes do contato cujo o index foi inserido." << std::endl;
+            std::cout << std::string(50, '-') << std::endl;
+            pb.searchContact(); // Aqui entra a Lógica para o comando SEARCH
         } else if (comando == "EXIT") {
             std::cout << "Saindo do programa...\n";
             break; // Comando para sair do loop

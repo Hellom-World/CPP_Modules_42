@@ -8,6 +8,7 @@ class PhoneBook {
     private:
         int     index;
 		int     contactsCount;
+        static int  nextIndexToReplace;
         Contact contacts[8];
     public:
         // Construtores e Destrutores

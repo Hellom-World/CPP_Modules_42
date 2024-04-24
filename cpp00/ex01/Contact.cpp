@@ -41,3 +41,49 @@ std::string	Contact::getPhoneNumber(void) {
 std::string	Contact::getDarkestSecret(void) {
 	return (this->darkestSecret);
 }
+
+//Auxiliar Functions
+
+bool validate_input(const std::string& input, int flag) {
+    // Verifica se o input está vazio
+    if (input.empty())
+        return false;
+
+	  if (flag == 1 || flag == 11) {
+				// Verifica se o input contém apenas números
+				if (flag == 11) {
+					for (size_t i = 0; i < input.length(); ++i) {
+						if (!std::isdigit(input[i]))
+								return false;
+					}
+				}
+				if (flag == 1){
+					for (size_t i = 0; i < input.length(); ++i) {
+							if (!std::isdigit(input[i]) || input.length() != 9)
+									return false;
+					}
+				}
+		}
+		if (flag == 2) {
+			// Verifica se o input contém apenas letras e espaços
+			for (size_t i = 0; i < input.length(); ++i) {
+					if (!std::isalpha(input[i]))
+							return false;
+			}
+		}
+
+    return true;
+}
+
+void get_valid_input(std::istream& in, std::string& input, int flag) {
+
+	do {
+		std::getline(in, input); // Obtém a linha completa, incluindo espaços
+		if (!validate_input(input, flag)) {
+			if (flag == 1)
+				std::cout << "\nEntrada inválida, digite um número de telefone válido (9 dígitos):" << std::endl;
+			else if (flag == 2)
+				std::cout << "\nEntrada inválida, digite apenas letras:" << std::endl;
+		}
+	} while (!validate_input(input, flag)); // Repete até que o input seja válido
+}

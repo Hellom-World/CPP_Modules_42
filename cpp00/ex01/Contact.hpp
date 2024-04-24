@@ -4,6 +4,8 @@
 # include <iostream>
 # include <string>
 # include <cctype>
+# include <limits>
+#include <iomanip>
 
 class Contact {
     // Atributos
@@ -34,5 +36,7 @@ class Contact {
 };
 
 void printMenu();
-
+bool validate_input(const std::string& input, int flag);
+void get_valid_input(std::istream& in, std::string& input, int flag);
+std::string formatColumn(const std::string& text);
 #endif

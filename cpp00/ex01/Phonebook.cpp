@@ -1,77 +1,86 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: heolivei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/25 13:23:37 by heolivei          #+#    #+#             */
+/*   Updated: 2024/04/25 13:23:41 by heolivei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Phonebook.hpp"
 
 
 PhoneBook::PhoneBook() {
     this->index = 0;
 		this->contactsCount = 0;
-};
+    this->maxContacts = 8;
+    this->nextIndexToReplace = 0;
+}
 
-int PhoneBook::nextIndexToReplace = 0;
+
 
 //---------------------------------------FORM_CONTACT--------------------------------------------------------------------------------------/
-void PhoneBook::addContact() {
+void PhoneBook::addContact() {  
 
-  std::cin.clear();  // Limpa o estado de erro de cin
-  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Limpa o buffer de entrada
-  
   std::string firstName;
-  std::cout << "Digite o primeiro nome: ";
-  get_valid_input(std::cin, firstName, 2); // Função para validar o input (verificar se contém apenas letras e espaços
+  std::cout << "Enter first name: ";
+  if (!get_valid_input(std::cin, firstName, 2)){ 
+    std::cout << "Number of attempts exceeded." << std::endl;
+    return;  
+  }
   
-  std::cout << "Digite o sobrenome: ";
+  std::cout << "Enter last name: ";
   std::string lastName;
-  get_valid_input(std::cin, lastName, 2); // Função para validar o input (verificar se contém apenas letras e espaços
+  if (!get_valid_input(std::cin, lastName, 2)){ 
+    std::cout << "Number of attempts exceeded." << std::endl;
+    return;  
+  }
 
-  std::cout << "Digite o seu Nickname: ";
+  std::cout << "Enter nickname: ";
   std::string nickName;
-  std::getline(std::cin, nickName);
+  if (!get_valid_input(std::cin, nickName, 4)){ 
+    std::cout << "Number of attempts exceeded." << std::endl;
+    return;  
+  }
 
-  std::cout << "Digite o seu Numero de Telefone: ";
+  std::cout << "Enter phone number: ";
   std::string phoneNumber;
-  get_valid_input(std::cin, phoneNumber, 1); // Função para validar o input (verificar se contém apenas letras e espaços
+  if (!get_valid_input(std::cin, phoneNumber, 1)){ 
+    std::cout << "Number of attempts exceeded." << std::endl;
+    return;  
+  }
 
-  std::cout << "Digite o seu password: ";
+  std::cout << "Enter darkest secret: ";
   std::string darkestSecret;
-  std::getline(std::cin, darkestSecret);
-
+  if (!get_valid_input(std::cin, darkestSecret, 3)){ 
+    std::cout << "Number of attempts exceeded." << std::endl;
+    return;  
+  }
 //-------------------------------------------SET_CONTACT------------------------------------------------------------------------------------/
+  Contact newContact;
+  newContact.setFirstName(firstName);
+  newContact.setLastName(lastName);
+  newContact.setNickName(nickName);
+  newContact.setPhoneNumber(phoneNumber);
+  newContact.setDarkestSecret(darkestSecret);
 
- // std::cout << contactsCount << std::endl;
-    Contact newContact;
-    newContact.setFirstName(firstName);
-    newContact.setLastName(lastName);
-    newContact.setNickName(nickName);
-    newContact.setPhoneNumber(phoneNumber);
-    newContact.setDarkestSecret(darkestSecret);
-
+  int contactsCount = getContactsCount();
   // Adicionar o novo contato ao vetor contacts
-  if (contactsCount >= 8) { // Verifica se há espaço no vetor
-    if (nextIndexToReplace >= 8) {
-      nextIndexToReplace = 0;
+  if (contactsCount >= getMaxContacts()) { // Verifica se há espaço no vetor
+    if (getNextIndexToReplace() >= 8) {
+      setNextIndexToReplace(0);
     } 
-    std::cout << "\nContato substituído:\n" << std::endl;
-    std::cout << "Nome do contato substituído: " << contacts[nextIndexToReplace].getFirstName() << std::endl;
-    std::cout << "Sobrenome do contato substituído: " << contacts[nextIndexToReplace].getLastName() << std::endl;
-    std::cout << "Nickname do contato substituído: " << contacts[nextIndexToReplace].getNickName() << std::endl;
-    std::cout << "Numero de telefone do contato substituído: " << contacts[nextIndexToReplace].getPhoneNumber() << std::endl;
-    std::cout << "Password do contato substituído: " << contacts[nextIndexToReplace].getDarkestSecret() << std::endl;
     contacts[nextIndexToReplace] = newContact;
     nextIndexToReplace = (nextIndexToReplace + 1) % 8;
   } else {
     // Criar um novo objeto Contact com as informações inseridas
-
     contacts[contactsCount] = newContact;
-
-    std::cout << "\nNome do contato salvo: " << contacts[contactsCount].getFirstName() << std::endl;
-    std::cout << "Sobrenome do contato salvo: " << contacts[contactsCount].getLastName() << std::endl;
-    std::cout << "Nickname do contato salvo: " << contacts[contactsCount].getNickName() << std::endl;
-    std::cout << "Numero de telefone do contato salvo: " << contacts[contactsCount].getPhoneNumber() << std::endl;
-    std::cout << "Password do contato salvo: " << contacts[contactsCount].getDarkestSecret() << std::endl;
-
-    contactsCount++;
-    std::cout << "\nNovo contato adicionado com sucesso!\n" << std::endl;
+    setContactsCount(contactsCount + 1);
+    std::cout << "\nNew contact added successfully!\n" << std::endl;
   }
-
 //------------------------------------------------------------------------------------------------------------------------------------------/
 }
 
@@ -79,58 +88,58 @@ void PhoneBook::addContact() {
 void PhoneBook::searchContact() {
   printContacts();
   std::string index;
-  std::cout << "\nDigite o index do contato que deseja visualizar: ";
+  if (getContactsCount() == 0)
+    return;
+  std::cout << "\nEnter the index of the contact you want to view: ";
   std::cin >> index;
-  int i = std::stoi(validate_input(index, 11) ? index : "-1");
+  int i = my_stoi(validate_input(index, 11) ? index : "-1");
 
-  if (i < 0 || i >= contactsCount) {
-    std::cout << "Index inválido. Tente novamente." << std::endl;
+  if (i < 0 || i >= getContactsCount()) {
+    std::cout << "Invalid index. Try again." << std::endl;
     searchContact();
   } else {
-    std::cout << "\nPrimeiro nome: " << contacts[i].getFirstName() << std::endl;
-    std::cout << "Sobrenome: " << contacts[i].getLastName() << std::endl;
+    // Exibir as informações do contato
+    std::cout << "\nFirst Name: " << contacts[i].getFirstName() << std::endl;
+    std::cout << "Last Name: " << contacts[i].getLastName() << std::endl;
     std::cout << "Nickname: " << contacts[i].getNickName() << std::endl;
-    std::cout << "Numero de telefone: " << contacts[i].getPhoneNumber() << std::endl;
-    std::cout << "Password: " << contacts[i].getDarkestSecret() << std::endl;
+    std::cout << "Phone Number: " << contacts[i].getPhoneNumber() << std::endl;
+    std::cout << "Darkest Secret: " << contacts[i].getDarkestSecret() << std::endl;
   }
-
 }
-void PhoneBook::printContact() {
-  std::cout << "--------------------TAREFAS-------------------------" << std::endl;
-  std::cout << std::string(50, '-') << std::endl;
-};
 
 void PhoneBook::printContacts() {
-  std::cout << "--------------------CONTATOS-------------------------" << std::endl;
-  std::cout << "|  INDEX  |  FIRST NAME  |  LAST NAME  |  NICKNAME  |" << std::endl;
-  std::cout << std::string(50, '-') << std::endl;
-  for (int i = 0; i < contactsCount; i++) {
+  std::cout << "\n----------------------CONTACTS-------------------------" << std::endl;
+  std::cout << "|  INDEX   |  FIRST NAME  |  LAST NAME  |  NICKNAME   |" << std::endl;
+  std::cout << std::string(55, '-') << std::endl;
+  for (int i = 0; i < getContactsCount(); i++) {
       // Configura a largura de cada coluna para 10 caracteres e alinha à direita
-      std::cout << "| " << std::setw(8) << std::right << i << " | "
-                << std::setw(12) << std::right << formatColumn(contacts[i].getFirstName()) << " | "
-                << std::setw(11) << std::right << formatColumn(contacts[i].getLastName()) << " | "
-                << std::setw(11) << std::right << formatColumn(contacts[i].getNickName()) << " |" << std::endl;
+      std::cout << "|    " << std::setw(5) << std::left << i << " | "
+        << std::setw(12) << std::left << formatColumn(contacts[i].getFirstName()) << " | "
+        << std::setw(11) << std::left << formatColumn(contacts[i].getLastName()) << " | "
+        << std::setw(11) << std::left << formatColumn(contacts[i].getNickName()) << " |" << std::endl;
   }
-  std::cout << std::string(50, '-') << std::endl;
-
-
-  /*std::cout << "--------------------TAREFAS-------------------------" << std::endl;
-  std::cout << "Mostrar lista de contato." << std::endl;
-  std::cout << "Pedir o usuario para inserir um  index." << std::endl;
-  std::cout << "Mostrar as informacoes do contato cujo o index foi inserido." << std::endl;
-  std::cout << "Mostrar apenas " << std::endl;
-  std::cout << std::string(50, '-') << std::endl; */
-};
-
-// Função para formatar uma coluna para ter 10 caracteres de largura e truncar o texto se for maior
-std::string formatColumn(const std::string& text) {
-    if (text.length() <= 10) {
-        return text;
-    } else {
-        return text.substr(0, 9) + ".";
-    }
+  if (getContactsCount() == 0) {
+    std::cout << "|                 No contacts saved.                  |" << std::endl;
+  }
+  std::cout << std::string(55, '-') << std::endl;
 }
 
 int PhoneBook::getContactsCount(void) {
   return this->contactsCount;
+}
+
+int PhoneBook::getNextIndexToReplace(void) {
+  return this->nextIndexToReplace;
+}
+
+//setters  
+void PhoneBook::setContactsCount(int contactsCount) {
+  this->contactsCount = contactsCount;
+}
+void PhoneBook::setNextIndexToReplace(int Rep) {
+  this->nextIndexToReplace = Rep;
+}
+
+int PhoneBook::getMaxContacts(void) {
+  return this->maxContacts;
 }

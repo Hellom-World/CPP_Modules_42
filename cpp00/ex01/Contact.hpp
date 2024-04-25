@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: heolivei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/25 13:23:01 by heolivei          #+#    #+#             */
+/*   Updated: 2024/04/25 13:23:05 by heolivei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
@@ -5,7 +17,8 @@
 # include <string>
 # include <cctype>
 # include <limits>
-#include <iomanip>
+# include <iomanip>
+
 
 class Contact {
     // Atributos
@@ -37,6 +50,8 @@ class Contact {
 
 void printMenu();
 bool validate_input(const std::string& input, int flag);
-void get_valid_input(std::istream& in, std::string& input, int flag);
+bool get_valid_input(std::istream& in, std::string& input, int flag);
 std::string formatColumn(const std::string& text);
+int my_stoi(const std::string& s);
+
 #endif

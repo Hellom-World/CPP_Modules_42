@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: heolivei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/25 13:23:01 by heolivei          #+#    #+#             */
+/*   Updated: 2024/04/25 13:23:05 by heolivei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Contact.hpp"
 
 void printMenu() {
@@ -71,19 +83,52 @@ bool validate_input(const std::string& input, int flag) {
 							return false;
 			}
 		}
+		if (flag == 4) {
+			// Verifica se o input contém apenas letras e espaços
+			for (size_t i = 0; i < input.length(); ++i) {
+					if (std::isspace(input[i]))
+							return false;
+			}
+		}
 
     return true;
 }
 
-void get_valid_input(std::istream& in, std::string& input, int flag) {
+bool get_valid_input(std::istream& in, std::string& input, int flag) {
 
+	int count = -1;
 	do {
 		std::getline(in, input); // Obtém a linha completa, incluindo espaços
 		if (!validate_input(input, flag)) {
 			if (flag == 1)
-				std::cout << "\nEntrada inválida, digite um número de telefone válido (9 dígitos):" << std::endl;
+				std::cout << "\nInvalid entry, please enter a valid phone number (9 digits):" << std::endl;
 			else if (flag == 2)
-				std::cout << "\nEntrada inválida, digite apenas letras:" << std::endl;
+				std::cout << "\nInvalid entry, enter letters only:" << std::endl;
+			else if (flag == 3)
+				std::cout << "\nEntry cannot be empty:" << std::endl;
+			else if (flag == 4)
+				std::cout << "\nInvalid entry, space not allowed:" << std::endl;
+			if (count == 2) {
+				return false;
+			}
 		}
-	} while (!validate_input(input, flag)); // Repete até que o input seja válido
+	} while (!validate_input(input, flag) && ++count < 3); // Repete até que o input seja válido
+	return true;
+}
+
+// Função para formatar uma coluna para ter 10 caracteres de largura e truncar o texto se for maior
+std::string formatColumn(const std::string& text) {
+    if (text.length() <= 10) {
+        return text;
+    } else {
+        return text.substr(0, 9) + ".";
+    }
+}
+
+int my_stoi(const std::string& s) {
+		int result = 0;
+		for (size_t i = 0; i < s.length(); ++i) {
+				result = result * 10 + s[i] - '0';
+		}
+		return result;
 }

@@ -56,6 +56,17 @@ std::string	Contact::getDarkestSecret(void) {
 
 //Auxiliar Functions
 
+// Função para lidar com o sinal de interrupção (Ctrl+\)
+void signalHandler(int sig) {
+	if (sig == SIGQUIT) {
+		std::cout << "\nNot Today!" << std::endl;
+		// Aqui você pode adicionar qualquer outra ação que deseja realizar
+		// após a captura do sinal de interrupção
+		exit(sig); // Encerra o programa
+	}
+}
+
+
 bool validate_input(const std::string& input, int flag) {
     // Verifica se o input está vazio
 

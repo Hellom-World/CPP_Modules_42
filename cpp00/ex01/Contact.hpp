@@ -19,7 +19,7 @@
 # include <limits>
 # include <iomanip>
 # include <cstdlib>
-
+# include <csignal>
 
 class Contact {
     // Atributos
@@ -50,6 +50,7 @@ class Contact {
 };
 
 void printMenu();
+void signalHandler(int sig);
 bool validate_input(const std::string& input, int flag);
 bool get_valid_input(std::istream& in, std::string& input, int flag);
 std::string formatColumn(const std::string& text);

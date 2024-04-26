@@ -16,6 +16,9 @@ int main() {
     PhoneBook   pb;
     std::string comando;
 
+    // Instala o handler para o sinal de interrupção
+    std::signal(SIGQUIT, signalHandler);
+
     std::cout << "\n              CONTACTS COUNT [" << pb.getContactsCount() << "]";
     printMenu();
     while (true) {

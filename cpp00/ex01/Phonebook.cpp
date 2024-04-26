@@ -27,7 +27,7 @@ void PhoneBook::addContact() {
 
   std::string firstName;
   std::cout << "Enter first name: ";
-  if (!get_valid_input(std::cin, firstName, 2)){ 
+  if (!get_valid_input(std::cin, firstName, 2)){
     std::cout << "Number of attempts exceeded." << std::endl;
     return;  
   }
@@ -86,12 +86,18 @@ void PhoneBook::addContact() {
 
 
 void PhoneBook::searchContact() {
+  
   printContacts();
   std::string index;
   if (getContactsCount() == 0)
     return;
   std::cout << "\nEnter the index of the contact you want to view: ";
   std::cin >> index;
+  if (std::cin.eof())
+  {
+    std::cout << "\nNot Today!" << std::endl;
+    exit(0);
+  }
   int i = my_stoi(validate_input(index, 11) ? index : "-1");
 
   if (i < 0 || i >= getContactsCount()) {

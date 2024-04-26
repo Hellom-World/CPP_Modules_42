@@ -58,7 +58,8 @@ std::string	Contact::getDarkestSecret(void) {
 
 bool validate_input(const std::string& input, int flag) {
     // Verifica se o input está vazio
-    if (input.empty())
+
+		if (input.empty())
         return false;
 
 	  if (flag == 1 || flag == 11) {
@@ -99,7 +100,14 @@ bool get_valid_input(std::istream& in, std::string& input, int flag) {
 	int count = -1;
 	do {
 		std::getline(in, input); // Obtém a linha completa, incluindo espaços
+
+  	if (std::cin.eof())
+		{
+			std::cout << "\nNot Today!" << std::endl;
+			exit(0);
+		}
 		if (!validate_input(input, flag)) {
+			
 			if (flag == 1)
 				std::cout << "\nInvalid entry, please enter a valid phone number (9 digits):" << std::endl;
 			else if (flag == 2)

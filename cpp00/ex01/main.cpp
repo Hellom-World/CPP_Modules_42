@@ -22,6 +22,11 @@ int main() {
 
         std::getline(std::cin, comando);
 
+        if (std::cin.eof())
+        {
+            std::cout << "\nNot Today!" << std::endl;
+            break;
+        }
         // Transformar o comando para maiúsculas
         for (size_t i = 0; i < comando.length(); ++i)
             comando[i] = std::toupper(static_cast<unsigned char>(comando[i])); // static_cast é usado para lidar com valores negativos de char
@@ -32,7 +37,7 @@ int main() {
             std::cout << "\n              CONTACTS COUNT [" << pb.getContactsCount() << "]";
             printMenu();
         } else if (comando == "SEARCH") {
-            pb.searchContact(); // Aqui entra a Lógica para o comando SEARCH
+            pb.searchContact(); // Aqui entra a Lógica para o comando SEARCH     
             std::cout << "\n              CONTACTS COUNT [" << pb.getContactsCount() << "]";
             printMenu();
         } else if (comando == "EXIT") {

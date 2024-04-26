@@ -18,6 +18,7 @@
 # include <cctype>
 # include <limits>
 # include <iomanip>
+# include <cstdlib>
 
 
 class Contact {

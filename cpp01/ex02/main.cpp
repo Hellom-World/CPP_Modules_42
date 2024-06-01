@@ -13,7 +13,7 @@ int  main(void){
   std::cout << "\033[1;31m" << "String" << "\033[0m" << "\t   " << "memory address: " << "\033[1;32m" << &string << "\033[0m" << std::endl;    
   //O endereço de memoria armazenado por stringPTR.
   std::cout << "\033[1;31m" << "StringPTR " << "\033[0m" << " memory address: " << "\033[1;32m" << &stringPTR << "\033[0m" << std::endl;
-    //O endereço de memoria armazenado por stringREF.
+  //O endereço de memoria armazenado por stringREF.
   std::cout << "\033[1;31m" << "StringREF " << "\033[0m" << " memory address: " << "\033[1;32m" << &stringREF << "\033[0m" << std::endl;
 
 

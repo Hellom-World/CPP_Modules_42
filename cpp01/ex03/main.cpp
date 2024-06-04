@@ -15,7 +15,7 @@ int main()
     HumanB jim("\033[1;20mJim\033[0m");
     jim.setWeapon(club);
     jim.attack();
-    club.setType("\033[1;31msome other type of club");
+    club.setType("\033[1;31msome other type of club\033[0m");
     jim.attack();
   }
   return 0;

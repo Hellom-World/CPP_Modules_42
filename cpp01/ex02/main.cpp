@@ -1,6 +1,12 @@
 # include <string>
 # include <iostream>
 
+#define RESET "\033[0m"
+#define RED "\033[1m\033[31m"
+#define GREEN "\033[1m\033[32m"
+#define YELLOW "\033[1m\033[33m"
+#define BLUE "\033[1m\033[34m"
+
 int  main(void){
   
   std::string string = "HI THIS IS BRAIN";
@@ -10,20 +16,17 @@ int  main(void){
   std::string &stringREF = string;
 
   //O endereço de memoria da variável string.
-  std::cout << "\033[1;31m" << "String" << "\033[0m" << "\t   " << "memory address: " << "\033[1;32m" << &string << "\033[0m" << std::endl;    
+  std::cout << RED << "String" << RESET << "\t  " << "memory address: " << GREEN << &string << RESET << std::endl;
   //O endereço de memoria armazenado por stringPTR.
-  std::cout << "\033[1;31m" << "StringPTR " << "\033[0m" << " memory address: " << "\033[1;32m" << &stringPTR << "\033[0m" << std::endl;
+  std::cout << RED << "StringPTR" << RESET << " memory address: " << GREEN << &stringPTR << RESET << std::endl;
   //O endereço de memoria armazenado por stringREF.
-  std::cout << "\033[1;31m" << "StringREF " << "\033[0m" << " memory address: " << "\033[1;32m" << &stringREF << "\033[0m" << std::endl;
+  std::cout << RED << "StringREF" << RESET << " memory address: " << GREEN << &stringREF << RESET << std::endl;
 
-
-  //Entao:
   //O valor da variavel string.
-  std::cout << "\n\033[1;31m" << "String " << "\033[0m" << "\t   variable value: "<< "\033[1;32m" << string << "\033[0m" << std::endl;
+  std::cout << RED << "\nString" << RESET << "\t  variable value: " << GREEN << string << RESET << std::endl;
   //O valor apontado por stringPTR.
-  std::cout << "\033[1;31m" << "StringPTR " << "\033[0m" << " variable value: "<< "\033[1;32m" << *stringPTR << "\033[0m" << std::endl;
+  std::cout << RED << "StringPTR" << RESET << " variable value: " << GREEN << *stringPTR << RESET << std::endl;
   //O valor referenciado por stringREF.
-  std::cout << "\033[1;31m" << "StringREF " << "\033[0m" << " variable value: "<< "\033[1;32m" << stringREF << "\033[0m" << std::endl;
-
+  std::cout << RED << "StringREF" << RESET << " variable value: " << GREEN << stringREF << RESET << std::endl;
   return 0;
 }

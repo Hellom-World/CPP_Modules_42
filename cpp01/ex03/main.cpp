@@ -11,11 +11,11 @@ int main()
     thor.attack();
   }
   {
-    Weapon club = Weapon("\033[1;31mcrude spiked club\033[0m");
+    Weapon club = Weapon("\033[1;31mSpiked Club\033[0m");
     HumanB jim("\033[1;20mJim\033[0m");
-    jim.attack();
     jim.setWeapon(club);
-    club.setType("\033[1;31msome other type of club\033[0m");
+    jim.attack();
+    club.setType("\033[1;31mMedieval Club\033[0m");
     jim.attack();
   }
   return 0;

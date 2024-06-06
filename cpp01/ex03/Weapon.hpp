@@ -3,7 +3,6 @@
 
 # include <string>
 # include <iostream>
-# include <cctype>
 
 class Weapon {
     private:

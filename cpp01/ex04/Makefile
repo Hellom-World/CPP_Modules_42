@@ -18,7 +18,11 @@ $(NAME):	$(OBJS)
 clean:
 	$(RM) $(OBJS)
 
-fclean: clean
+repclean:
+	$(RM) *.replace
+
+fclean: clean repclean
 	$(RM) $(NAME)
+
 
 re: fclean all

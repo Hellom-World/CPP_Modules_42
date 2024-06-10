@@ -3,7 +3,7 @@
 int main(void) {
   Harl harl;
 
-  harl.complain("debug");
+  harl.complain("DEBUG");
   harl.complain("info");
   harl.complain("warning");
   harl.complain("error");

@@ -27,6 +27,7 @@ class Fixed {
         
         // Overload operators
         Fixed &operator=(const Fixed &fixed);
+        friend std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
         
         // member functions
         // Converte o valor de ponto fixo em um valor de ponto flutuante

@@ -37,6 +37,11 @@ Fixed &Fixed::operator=(const Fixed &src) {
     return *this;
 }
 
+std::ostream &operator<<(std::ostream &out, const Fixed &fixed) {
+	out << fixed.toFloat();
+	return (out);
+}
+
 //member functions
 float Fixed::toFloat(void) const {
     return (float)this->_value / (1 << this->_fractionalBits);

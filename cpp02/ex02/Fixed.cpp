@@ -1,40 +1,97 @@
 #include "Fixed.hpp"
 
 //Constructor Padrao e destructor
-Fixed::Fixed() : _value(0) {
-    std::cout << GREEN << "| Default constructor called         |" << RESET << std::endl;
+Fixed::Fixed() {
+    this->_value = 0;
 }
-Fixed::~Fixed() {
-    std::cout << RED << " ___________________" << RESET << std::endl;
-    std::cout << RED << "| Destructor called |" << RESET << std::endl;
-    std::cout << RED << " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯" << RESET << std::endl;
-}
-
 
 //Construtor de copia
 Fixed::Fixed(const Fixed &src) {
-  std::cout << GREEN << "| Copy constructor called            |" << RESET << std::endl;
   *this = src;
 }
 //Construtor com int
 Fixed::Fixed(const int value) {
-    std::cout << GREEN << "| Int constructor called             |" << RESET << std::endl;
     this->_value = value << this->_fractionalBits;
 }
 //Construtor com float
 Fixed::Fixed(const float value) {
-    std::cout << GREEN << "| Float constructor called           |" << RESET << std::endl;
     this->_value = roundf(value * (1 << this->_fractionalBits));
 }
 
 
-
+//Overload operators comparison
 
 Fixed &Fixed::operator=(const Fixed &src) {
-    std::cout << GREEN << "| Assignation operator called        |" << RESET << std::endl;
     if (this != &src)
         this->_value = src.getRawBits();
     return *this;
+}
+
+bool Fixed::operator>(const Fixed &src) const {
+    return this->_value > src.getRawBits();
+}
+bool Fixed::operator<(const Fixed &src) const {
+    return this->_value < src.getRawBits();
+}
+bool Fixed::operator>=(const Fixed &src) {
+    return this->_value >= src.getRawBits();
+}
+bool Fixed::operator<=(const Fixed &src) {
+    return this->_value <= src.getRawBits();
+}
+bool Fixed::operator==(const Fixed &src) {
+    return this->_value == src.getRawBits();
+}
+bool Fixed::operator!=(const Fixed &src) {
+    return this->_value != src.getRawBits();
+}
+
+//Overload operators arithmetic
+Fixed Fixed::operator+(const Fixed &src) {
+    return Fixed(this->toFloat() + src.toFloat());
+}
+Fixed Fixed::operator-(const Fixed &src) {
+    return Fixed(this->toFloat() - src.toFloat());
+}
+Fixed Fixed::operator*(const Fixed &src) {
+    return Fixed(this->toFloat() * src.toFloat());
+}
+Fixed Fixed::operator/(const Fixed &src) {
+    return Fixed(this->toFloat() / src.toFloat());
+}
+
+//increment and decrement
+Fixed &Fixed::operator++(void) {
+    this->_value++;
+    return *this;
+}
+Fixed &Fixed::operator--(void) {
+    this->_value--;
+    return *this;
+}
+Fixed Fixed::operator++(int) {
+    Fixed tmp(*this);
+    operator++();
+    return tmp;
+}
+Fixed Fixed::operator--(int) {
+    Fixed tmp(*this);
+    operator--();
+    return tmp;
+}
+
+//min and max
+Fixed &Fixed::min(Fixed &a, Fixed &b) {
+    return (a < b) ? a : b;
+}
+Fixed &Fixed::max(Fixed &a, Fixed &b) {
+    return (a > b) ? a : b;
+}
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b) {
+    return (a < b) ? a : b;
+}
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
+    return (a > b) ? a : b;
 }
 
 std::ostream &operator<<(std::ostream &out, const Fixed &fixed) {

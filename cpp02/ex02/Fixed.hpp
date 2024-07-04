@@ -17,7 +17,7 @@ class Fixed {
     public:
         // Constructors and destructors
         Fixed();
-        ~Fixed();
+        ~Fixed() { };
 
         // Copy constructor
         Fixed(const Fixed &fixed);
@@ -25,11 +25,36 @@ class Fixed {
         Fixed(const float value);
 
 
-        // Overload operators
+        // Overload operators comparison
+
         Fixed &operator=(const Fixed &fixed);
-        std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
+        bool operator>(const Fixed &fixed) const;
+        bool operator<(const Fixed &fixed) const;
+        bool operator>=(const Fixed &fixed);
+        bool operator<=(const Fixed &fixed);
+        bool operator==(const Fixed &fixed);
+        bool operator!=(const Fixed &fixed);
 
 
+        // Overload operators arithmetic
+        Fixed operator+(const Fixed &fixed);
+        Fixed operator-(const Fixed &fixed);
+        Fixed operator*(const Fixed &fixed);
+        Fixed operator/(const Fixed &fixed);
+
+        // min and max
+        static Fixed &min(Fixed &a, Fixed &b);
+        static Fixed &max(Fixed &a, Fixed &b);
+        static const Fixed &min(const Fixed &a, const Fixed &b);
+        static const Fixed &max(const Fixed &a, const Fixed &b);
+
+        // Overload operators increment and decrement
+        Fixed &operator++(void);
+        Fixed &operator--(void);
+        Fixed operator++(int);
+        Fixed operator--(int);
+
+        // member functions conversion
         float toFloat(void) const;
         int toInt(void) const;
 
@@ -37,5 +62,6 @@ class Fixed {
         int getRawBits(void) const;
         void setRawBits(int const raw);
 };
+std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
 
 #endif

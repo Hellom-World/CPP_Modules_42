@@ -27,18 +27,15 @@ class Fixed {
 
         // Overload operators
         Fixed &operator=(const Fixed &fixed);
+        std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
 
-        // member functions
-        // Converte o valor de ponto fixo em um valor de ponto flutuante
+
         float toFloat(void) const;
-        // Converte o valor de ponto fixo em um valor inteiro
         int toInt(void) const;
 
         //getters and setters
         int getRawBits(void) const;
         void setRawBits(int const raw);
 };
-
-std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
 
 #endif

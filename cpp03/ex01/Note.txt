@@ -1,0 +1,4 @@
+Pendencias:
+
+* Fazer teste da main e conferir funcionamento conforme as anotacoes
+* Implementar o nao ataque caso os pontos de vida for = 0

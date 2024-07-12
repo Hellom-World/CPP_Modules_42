@@ -1,7 +1,7 @@
 #include "ClapTrap.hpp"
 
 // Default constructor and destructor
-ClapTrap::ClapTrap() : _name("Wilson"), _hitPoints(100), _energyPoints(50), _attackDamage(20) {
+ClapTrap::ClapTrap() : _name("DefaultTrap"), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
     std::cout << "ClapTrap " << _name << " has been created" << std::endl;
 }
 ClapTrap::~ClapTrap() {

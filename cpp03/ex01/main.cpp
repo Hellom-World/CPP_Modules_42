@@ -1,49 +1,33 @@
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 
 int main() {
 
-    // Test with default constructor
-    ClapTrap Clap;
-    // Test with parameterized constructor
-    ClapTrap clapTrapCopy(Clap);
-    // Test with copy constructor
-    ClapTrap clapTrapCopy2 = Clap;
+    // Default constructor
+    ClapTrap defaultClapTrap("Oscar");
+    std::cout << std::endl;
+    defaultClapTrap.getName();
+    defaultClapTrap.getHitPoints();
+    defaultClapTrap.getEnergyPoints();
+    defaultClapTrap.getAttackDamage();
+    defaultClapTrap.attack("Hercules");
+    defaultClapTrap.takeDamage(10);
+    defaultClapTrap.beRepaired(5);
 
-    // Test with member functions forbidden by the subject
-
-    std::cout << std::endl;
-    std::cout << "TEST ATTACK WITH <N> HITPONTS" << std::endl;
-    Clap.getHitPoints();
-    Clap.getEnergyPoints();
-    Clap.attack("GHOST");
-    std::cout << std::endl;
-    Clap.takeDamage(20);
-    Clap.getHitPoints();
-    Clap.getEnergyPoints();
-    Clap.attack("GHOST");
-    std::cout << std::endl;
-    Clap.beRepaired(5);
-    Clap.getHitPoints();
-    Clap.getEnergyPoints();
-    Clap.attack("GHOST");
-    std::cout << std::endl;
-    Clap.getHitPoints();
-    Clap.getEnergyPoints();
-    Clap.attack("GHOST");
-    Clap.attack("GHOST");
 
     std::cout << std::endl;
-    std::cout << "TEST ATTACK WITH <N> ENERGYPOINTS" << std::endl;
-    Clap.getHitPoints();
-    Clap.getEnergyPoints();
-    Clap.attack("GHOST");
+    ScavTrap defaultScavTrap("Hercules");
     std::cout << std::endl;
-    Clap.attack("GHOST");
-    Clap.attack("GHOST");
-    Clap.attack("GHOST");
-    Clap.attack("GHOST");
-    Clap.getEnergyPoints();
+    defaultScavTrap.getName();
+    defaultScavTrap.getHitPoints();
+    defaultScavTrap.getEnergyPoints();
+    defaultScavTrap.getAttackDamage();
+    defaultScavTrap.attack("Oscar");
+    defaultScavTrap.takeDamage(10);
+    defaultScavTrap.beRepaired(5);
+    defaultScavTrap.guardGate();
+
 
 
     // Destructor

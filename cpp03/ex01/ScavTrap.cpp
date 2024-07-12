@@ -1,7 +1,11 @@
 #include "ScavTrap.hpp"
 
+
 // Default constructor and destructor
-ScavTrap::ScavTrap() : ClapTrap("Wilson") {
+ScavTrap::ScavTrap() : ClapTrap(){
+    _hitPoints = 100;
+    _energyPoints = 50;
+    _attackDamage = 20;
     std::cout << "ScavTrap " << _name << " has been created" << std::endl;
 }
 ScavTrap::~ScavTrap() {
@@ -10,6 +14,9 @@ ScavTrap::~ScavTrap() {
 
 // Parameterized constructor and copy constructor
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
+    _hitPoints = 100;
+    _energyPoints = 50;
+    _attackDamage = 20;
     std::cout << "ScavTrap " << _name << " has been created" << std::endl;
 }
 ScavTrap::ScavTrap(const ScavTrap& src) : ClapTrap(src) {
@@ -49,9 +56,9 @@ void ScavTrap::takeDamage(unsigned int amount) {
     _hitPoints -= amount;
 }
 void ScavTrap::beRepaired(unsigned int amount) {
-    if (_hitPoints + amount > 10) {
-        std::cout << "ScavTrap " << _name << " is being repaired by " << 10 - _hitPoints << " points!" << std::endl;
-        _hitPoints = 10;
+    if (_hitPoints + amount > 100) {
+        std::cout << "ScavTrap " << _name << " is being repaired by " << 100 - _hitPoints << " points!" << std::endl;
+        _hitPoints = 100;
         _energyPoints -= 1;
         return;
     }
@@ -59,6 +66,11 @@ void ScavTrap::beRepaired(unsigned int amount) {
     _energyPoints -= 1;
 }
 
+// Getters
+std::string ScavTrap::getName() const {
+    std::cout << "ScavTrap name: " << _name << std::endl;
+    return _name;
+}
 
 // New member function
 void ScavTrap::guardGate() {

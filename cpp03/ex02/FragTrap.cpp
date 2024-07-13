@@ -15,8 +15,8 @@ FragTrap::~FragTrap() {
 // Parameterized constructor and copy constructor
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
     _hitPoints = 100;
-    _energyPoints = 50;
-    _attackDamage = 20;
+    _energyPoints = 100;
+    _attackDamage = 30;
     std::cout << "FragTrap " << _name << " has been created" << std::endl;
 }
 FragTrap::FragTrap(const FragTrap& src) : ClapTrap(src) {

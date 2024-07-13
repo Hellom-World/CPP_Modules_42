@@ -1,4 +1,0 @@
-
-Pendencias:
-
-* Criar Main para testar todas as coisas exigidas nas paginas de Aval

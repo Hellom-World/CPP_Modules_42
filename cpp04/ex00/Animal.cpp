@@ -1,8 +1,8 @@
 #include "Animal.hpp"
 
-Animal::Animal() : _type(" ")
+Animal::Animal() : _type("default")
 {
-    std::cout << "Animal default constructor called" << std::endl;
+    std::cout << "Animal " << _type << " constructor called" << std::endl;
 };
 
 Animal::Animal(std::string type) : _type(type)

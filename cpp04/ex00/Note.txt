@@ -1,6 +1,0 @@
-Pendencias
-
-*Criar a main
-*Criar classe Animal
-*Criar classe Dog
-*Criar classe Cat

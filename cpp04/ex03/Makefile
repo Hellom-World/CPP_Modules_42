@@ -1,13 +1,8 @@
-NAME = life
+NAME = Animal
 
 SRCS = src/main.cpp \
-		src/Brain.cpp \
-		src/Animal.cpp \
-		src/Dog.cpp \
-		src/Cat.cpp \
-		src/WrongAnimal.cpp \
-		src/WrongCat.cpp
-
+		src/AMateria.cpp
+		src/Character.cpp \\
 CXX = c++
 
 

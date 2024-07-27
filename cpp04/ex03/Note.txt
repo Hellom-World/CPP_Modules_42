@@ -27,3 +27,21 @@ A diferenca eh que a interface nao usa o mecanismo de heranca das classses, port
 |        virtual void use(ICharacter& target);                                     |
 |    };                                                                            |
 ************************************************************************************
+
+Nota: Diferenca entre Classes abstratas e interfaces.
+INTERFACE: É como se fosse uma classe mas voce nao tem atributos privados e voce nao herda, apenas implementa
+- A implementacao é a fazer com que a classe tenha exatamente a assinatura daquela interface. Isso é importante como uma forma de empacotar informacoes que podem ser compartilhadas e ela nao tem qualquer tipo de implementacao
+CLASSE ABSTRATA: A classe abstrata serve como base para outra classe entao a classe derivada herda da classe abstrata e nesse caso a classe base pode ter metodos privados, protegidos e publicos e voce pode fazer implementacao de metodos. A classe abstrata tambem nao pode ser instanciada, ou seja, nao conseguimos criar um objeto puramente a partir dessa clase.
+Tambem nao eh possivel a classe base herdar de mais de 1 classe diferente.
+
+LOGO, as interfaces voce vai usar quando voce precisar de "contratos", ou seja, quando voce precisa garantir que uma classe vai ter realmente aqueles metodos, propriedades e atributos
+E as classes abstratas voce vai usar quando fizer sentido o reuso do codigo e para conter informacoes abstratas que poderam ser OU NAO serem herdadas e utilizadas pelas classes filhas.
+
+
+Cria Classes concretas Ice e Cure - Classes concretas sao aquelas que nao tem metodos abstratos, ou seja podem ser instanciadas.
+Cria a classe Abstrada AMaterial - Ou seja, nao pode ser instanciada sem com que uma classe herde e implemente o metodo abstrato.
+Implementar na classe AMaterial a interface ICharacter como funcao membros
+OBS:. Nesse caso tempos uma classe abstrata que tambem tem uma implemetacao de um interface
+Criar a Classe Character que implementa a interface ICharacter
+Criar a Classe MaterialSource que implemeta a interface IMaterialSource
+Por fim, criar a main de modo a fazer todos os testes necessarios para o bom funcionameto do codigo.

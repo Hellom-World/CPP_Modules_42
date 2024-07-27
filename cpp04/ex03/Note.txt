@@ -1,0 +1,29 @@
+Pendencias
+
+| | - Fazer analise inicial e apontamentos
+
+Anotacoes :
+
+As classes abstratas eh a forma de criar o conceito de interface no c++. Uma interface eh uma estrutura que lembra uma classe, podendo ter metodos e atributos, mas que nao implementa nada realmente, não tem nenhum codigo, entao esta muito longe de ser uma classe.
+Os metodos em uma interface sao simples publicos, estaticos e finais(nao podem ter seu valor modificado, ou seja, sao constantes).
+Assim como as classes abstratas, a funcao das interfaces é criar uma linguagem padrao de comunicacao com as classes, definindo metodos que serao implementados nas classes.
+A diferenca eh que a interface nao usa o mecanismo de heranca das classses, portanto uma classe pode herdar de outra classe aaa
+
+---------- Rascunho --------
+( )Definir classe AMateria e implementar as funcoes membros necessarias
+************************************************************************************
+|    class AMateria                                                                |
+|    {                                                                             |
+|    protected:                                                                    |
+|        [...]                                                                     |
+|                                                                                  |
+|    public:                                                                       |
+|        AMateria(std::string const & type);                                       |
+|        [...]                                                                     |
+|                                                                                  |
+|       std::string const & getType() const; //Retorna o tipo da matéria           |
+|                                                                                  |
+|        virtual AMateria* clone() const = 0;                                      |
+|        virtual void use(ICharacter& target);                                     |
+|    };                                                                            |
+************************************************************************************

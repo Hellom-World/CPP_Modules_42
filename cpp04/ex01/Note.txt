@@ -1,9 +1,11 @@
 Pendencias
 
-|X| - Criar classe abstrata "Brain" para o dog e cat
+|X| - Criar classe "Brain" para o dog e cat
 |X| - Criar a main do subjetcs para verificar a criacao e destuicao dos objetos
-| | - Analizar a criacao e destruicao dos objetos criado na main do subjects
-| | - Criar main com array pedido no subjetcs
-| | - Conferir ordem de destruicao de objetos na main de teste
-| | - Saber explicar o que eh uma classe abstrata
+|X| - Analizar a criacao e destruicao dos objetos criado na main do subjects
+|X| - Testar se as copias dos meus Cat e Dog sao copias profundas na MainMandatory.
+|X| - Criar main com array pedido no subjetcs
+|X| - Conferir ordem de destruicao de objetos na main de teste
+|X| - Esse ex ainda nao considera classes abstratas
 | | - Colocar os .hpp em uma pasta include e os .cpp em uma pasta source
+| | - Verificar folha de avalicao e fazer os apontamentos

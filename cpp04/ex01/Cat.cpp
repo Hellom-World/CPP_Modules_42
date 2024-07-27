@@ -2,8 +2,8 @@
 
 Cat::Cat() : Animal("Cat")
 {
-    _brain = new Brain();
     std::cout << "Cat default constructor called" << std::endl;
+    _brain = new Brain();
 };
 
 Cat::Cat(std::string type) : Animal(type)
@@ -36,4 +36,14 @@ Cat& Cat::operator=(const Cat& other)
 void Cat::makeSound() const
 {
     std::cout << "Cat sound: HAU HAU HAU!" << std::endl;
+};
+
+void Cat::setBrainIdea(int index, std::string idea)
+{
+    _brain->setIdea(index, idea);
+};
+
+void Cat::getBrainIdea(int index) const
+{
+    _brain->getIdea(index);
 };

@@ -1,6 +1,12 @@
 NAME = Animal
 
-SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp WrongAnimal.cpp WrongCat.cpp
+SRCS = src/main.cpp \
+		src/Brain.cpp \
+		src/Animal.cpp \
+		src/Dog.cpp \
+		src/Cat.cpp \
+		src/WrongAnimal.cpp \
+		src/WrongCat.cpp
 
 CXX = c++
 

@@ -21,6 +21,7 @@ class Cat : public Animal
         virtual void makeSound() const;
         void setBrainIdea(int index, std::string idea);
         void getBrainIdea(int index) const;
+        void meditation() const;
 };
 
 #endif

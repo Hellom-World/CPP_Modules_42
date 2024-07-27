@@ -11,6 +11,7 @@ class Animal
     public:
         Animal();
         virtual ~Animal();
+        //~Animal();
 
         // Copy constructor and parameterized constructor
         Animal(const Animal& copy);

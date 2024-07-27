@@ -34,12 +34,6 @@ Brain::Brain(std::string type)
         _ideas[i] = type;
 };
 
-
-void Brain::imagine() const
-{
-    std::cout << "I'm thinking about " << _ideas[42] << std::endl;
-};
-
 std::string Brain::setIdea(int index, std::string idea)
 {
     if (index < 0 || index >= 100)
@@ -56,5 +50,6 @@ std::string Brain::getIdea(int index) const
     {
         return "Index out of range < 0 ~ 100 >";
     }
+    std::cout << "Get Idea! index " << index << std::endl;
     return _ideas[index];
 };

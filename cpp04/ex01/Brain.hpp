@@ -14,7 +14,6 @@ class Brain
         // Copy constructor and parameterized constructor
         Brain(const Brain& copy);
         Brain(std::string type);
-        virtual void imagine() const;
 
         Brain& operator=(const Brain& other);
 

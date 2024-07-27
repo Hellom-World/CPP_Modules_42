@@ -38,7 +38,7 @@ void Dog::makeSound() const
     std::cout << "Dog sound: HAU HAU HAU!" << std::endl;
 };
 
-void Dog::setBrainIdea(int index, std::string idea)
+void Dog::setBrainIdea(int index, std::string idea) const
 {
     _brain->setIdea(index, idea);
 };
@@ -46,4 +46,10 @@ void Dog::setBrainIdea(int index, std::string idea)
 std::string Dog::getBrainIdea(int index) const
 {
     return _brain->getIdea(index);
+};
+
+void Dog::meditation() const
+{
+    for (int i = 0; i < 100; i++)
+        std::cout << _type <<" Idea " << i << ": " << _brain->getIdea(i) << std::endl;
 };

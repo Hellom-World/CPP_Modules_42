@@ -28,7 +28,6 @@ Cat& Cat::operator=(const Cat& other)
     std::cout << "Cat assignation operator called" << std::endl;
     if (this != &other)
         _type = other._type;
-    delete _brain;
     _brain = new Brain(*other._brain);
     return *this;
 };
@@ -46,4 +45,10 @@ void Cat::setBrainIdea(int index, std::string idea)
 void Cat::getBrainIdea(int index) const
 {
     _brain->getIdea(index);
+};
+
+void Cat::meditation() const
+{
+    for (int i = 0; i < 100; i++)
+        std::cout << _type << " Idea " << i << ": " << _brain->getIdea(i) << std::endl;
 };

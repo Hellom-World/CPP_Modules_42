@@ -9,3 +9,5 @@ Pendencias
 |X| - Esse ex ainda nao considera classes abstratas
 | | - Colocar os .hpp em uma pasta include e os .cpp em uma pasta source
 | | - Verificar folha de avalicao e fazer os apontamentos
+|X| - Verificar saidas especificas da classe Brain
+|X| - Testar com destructor sem virtual

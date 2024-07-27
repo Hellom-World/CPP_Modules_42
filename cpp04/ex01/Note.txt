@@ -7,7 +7,7 @@ Pendencias
 |X| - Criar main com array pedido no subjetcs
 |X| - Conferir ordem de destruicao de objetos na main de teste
 |X| - Esse ex ainda nao considera classes abstratas
-| | - Colocar os .hpp em uma pasta include e os .cpp em uma pasta source
-| | - Verificar folha de avalicao e fazer os apontamentos
+|X| - Colocar os .hpp em uma pasta include e os .cpp em uma pasta source
+|X| - Verificar folha de avalicao e fazer os apontamentos do ex01
 |X| - Verificar saidas especificas da classe Brain
 |X| - Testar com destructor sem virtual

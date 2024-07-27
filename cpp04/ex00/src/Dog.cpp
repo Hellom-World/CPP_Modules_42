@@ -1,3 +1,4 @@
+#include <iostream>
 #include "../include/Dog.hpp"
 
 Dog::Dog() : Animal("Dog")

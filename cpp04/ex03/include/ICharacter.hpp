@@ -1,37 +1,22 @@
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#ifndef ICHARACTER_HPP
+#define ICHARACTER_HPP
 
 #include <iostream>
 #include "AMateria.hpp"
 
+// A classe Icharacter é uma interface que parametriza de forma obrigatória os métodos que
+// devem ser implementados por uma classe que deseja ser um personagem.
+// Por se tratar de uma interface, todos os métodos são virtuais puros.
+// Ou seja, a classe que herdar de ICharacter é obrigada a implementar os métodos da interface.
+// ICharacter é a classe base para Character.
 class ICharacter
 {
 public:
-    virtual ~ICharacter() {}
+    virtual ~ICharacter() {};
     virtual std::string const & getName() const = 0;
     virtual void equip(AMateria* m) = 0;
     virtual void unequip(int idx) = 0;
     virtual void use(int idx, ICharacter& target) = 0;
 };
-
-class Character : public ICharacter
-{
-private:
-    std::string _name;
-    AMateria* _inventory[4];
-    // [...]
-
-public:
-    Character(std::string name);
-    Character(Character const &);
-    Character& operator=(Character const &);
-    ~Character();
-
-    std::string const & getName() const;
-    void equip(AMateria* m);
-    void unequip(int idx);
-    void use(int idx, ICharacter& target);
-};
-
 
 #endif

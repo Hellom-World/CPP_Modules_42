@@ -66,3 +66,11 @@ void Character::unequip(int idx)
         _inventory[idx] = NULL;
     std::cout << "Inventory slot " << idx << " is empty" << std::endl;
 }
+
+void Character::use(int idx, ICharacter& target)
+{
+    if (idx >= 0 && idx < 4 && _inventory[idx])
+        _inventory[idx]->use(target);
+    else
+        std::cout << "Inventory slot " << idx << " is empty" << std::endl;
+}

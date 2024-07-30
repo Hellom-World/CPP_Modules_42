@@ -36,11 +36,11 @@ std::string const & AMateria::getType() const
     return _type;
 }
 
-// Use é um método virtual puro, então é necessário implementar nas classes filhas
-// Ele foi implementado aqui pois deriva da interface ICharacter que não foi implementada
+// O metodo use é um metodo virtual puro, utilizado para lançar feitiços em um alvo (ICharacter)
+// O método use é implementado nas classes filhas Ice e Cure e utilizado na classe Character
+// para lançar feitiços em um alvo (ICharacter)
 void AMateria::use(ICharacter& target)
 {
     std::cout << "AMateria " << _type << " used on " << target.getName() << std::endl;
 }
-
-// para implementar o método clone, é necessário implementar o método clone nas classes filhas
+// O método clone é um método virtual puro que é implementado nas classes filhas Ice e Cure

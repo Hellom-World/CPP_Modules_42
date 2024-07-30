@@ -1,47 +1,19 @@
-Pendencias
 
-| | - Fazer analise inicial e apontamentos
-
-Anotacoes :
-
-As classes abstratas eh a forma de criar o conceito de interface no c++. Uma interface eh uma estrutura que lembra uma classe, podendo ter metodos e atributos, mas que nao implementa nada realmente, não tem nenhum codigo, entao esta muito longe de ser uma classe.
-Os metodos em uma interface sao simples publicos, estaticos e finais(nao podem ter seu valor modificado, ou seja, sao constantes).
-Assim como as classes abstratas, a funcao das interfaces é criar uma linguagem padrao de comunicacao com as classes, definindo metodos que serao implementados nas classes.
-A diferenca eh que a interface nao usa o mecanismo de heranca das classses, portanto uma classe pode herdar de outra classe aaa
-
----------- Rascunho --------
-( )Definir classe AMateria e implementar as funcoes membros necessarias
-************************************************************************************
-|    class AMateria                                                                |
-|    {                                                                             |
-|    protected:                                                                    |
-|        [...]                                                                     |
-|                                                                                  |
-|    public:                                                                       |
-|        AMateria(std::string const & type);                                       |
-|        [...]                                                                     |
-|                                                                                  |
-|       std::string const & getType() const; //Retorna o tipo da matéria           |
-|                                                                                  |
-|        virtual AMateria* clone() const = 0;                                      |
-|        virtual void use(ICharacter& target);                                     |
-|    };                                                                            |
-************************************************************************************
-
-Nota: Diferenca entre Classes abstratas e interfaces.
-INTERFACE: É como se fosse uma classe mas voce nao tem atributos privados e voce nao herda, apenas implementa
-- A implementacao é a fazer com que a classe tenha exatamente a assinatura daquela interface. Isso é importante como uma forma de empacotar informacoes que podem ser compartilhadas e ela nao tem qualquer tipo de implementacao
-CLASSE ABSTRATA: A classe abstrata serve como base para outra classe entao a classe derivada herda da classe abstrata e nesse caso a classe base pode ter metodos privados, protegidos e publicos e voce pode fazer implementacao de metodos. A classe abstrata tambem nao pode ser instanciada, ou seja, nao conseguimos criar um objeto puramente a partir dessa clase.
-Tambem nao eh possivel a classe base herdar de mais de 1 classe diferente.
-
-LOGO, as interfaces voce vai usar quando voce precisar de "contratos", ou seja, quando voce precisa garantir que uma classe vai ter realmente aqueles metodos, propriedades e atributos
-E as classes abstratas voce vai usar quando fizer sentido o reuso do codigo e para conter informacoes abstratas que poderam ser OU NAO serem herdadas e utilizadas pelas classes filhas.
-
-
-Cria Classes concretas Ice e Cure - Classes concretas sao aquelas que nao tem metodos abstratos, ou seja podem ser instanciadas.
-Cria a classe Abstrada AMaterial - Ou seja, nao pode ser instanciada sem com que uma classe herde e implemente o metodo abstrato.
-Implementar na classe AMaterial a interface ICharacter como funcao membros
+| | Cria Classes concretas Ice e Cure - Classes concretas sao aquelas que nao tem metodos abstratos, ou seja podem ser instanciadas.
+| | Cria a classe Abstrada AMaterial - Ou seja, nao pode ser instanciada sem com que uma classe herde e implemente o metodo abstrato.
+|X|Implementar na classe AMaterial a interface ICharacter com funcao membros
 OBS:. Nesse caso tempos uma classe abstrata que tambem tem uma implemetacao de um interface
-Criar a Classe Character que implementa a interface ICharacter
-Criar a Classe MaterialSource que implemeta a interface IMaterialSource
-Por fim, criar a main de modo a fazer todos os testes necessarios para o bom funcionameto do codigo.
+| |Criar a Classe Character que implementa a interface ICharacter
+| |Criar a Classe MaterialSource que implemeta a interface IMaterialSource
+| |Por fim, criar a main de modo a fazer todos os testes necessarios para o bom funcionameto do codigo.
+| |E necessario guardar em algum lugar as materias utilizadas
+
+Diario de bordo.
+Isso basicamente eh a criacao do desenho do capitao planeta. Temos que criar personagens com superpoderes, no caso personagem que podem utilizar poderes que se esgotam e os poderem sao Gelo e Cura. Graças a Deus ninguem vai morrer ou perder sangue para conclusao desse projeto. Basicamente vamos atacar ou curar um personagem mais nao vai ser preciso definir as consequencias disso na vitalidade do personagem, ou seja, vai ser um ataque de mentirinha.
+
+A primeira coisa foi definir o que era interface, classe abstrata e classe concreta.
+Basicamente temos niveis de abstracao que contem atributos e metodos obrigatorios e isso que define uma interface pois ela basicamente contem metodos setados como =0 que obriga a classe que for herdar/implementar essa interface a definir uma funcionalidade para esses metodos.
+Entao primeiro criamos uma classe abstrata "AMateria" e ela eh abstrata pq contem pelomenos 1 metodo como sendo igual a 0. No caso o metodo abstrato eh um metodo de copia que deve permitir que se crie um outro objeto a partir do objeto passado como parametro.
+Depois o proximo passo eh criar uma interface ICharacter que vai definir metodos obrigadorios que devem ser implementados quando criarmos um novo Character
+E eh ai que entra a Classe concre de Character que deve utilizar da interface ICharacter para implementar seus metodos e salvar em private os ponteiros de 4 classes concretas da classe abstrata AMateria.
+Estamos satisfeito?

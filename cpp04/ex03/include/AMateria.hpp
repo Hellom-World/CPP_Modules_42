@@ -1,7 +1,8 @@
 #ifndef AMATERIA_HPP
 #define AMATERIA_HPP
 
-#include "Character.hpp"
+#include "ICharacter.hpp"
+#include <iostream>
 
 // AMateria é uma Classe abstrata que representa uma matéria que pode ser equipada por um personagem
 // e que pode ser usada para lançar feitiços em um alvo (ICharacter)
@@ -26,6 +27,8 @@ class AMateria
         std::string const & getType() const; //Retorna o tipo da matéria
 
         virtual AMateria* clone() const = 0;
+        // Erro ICharacter was not declared
+        // Para
         virtual void use(ICharacter& target);
 };
 

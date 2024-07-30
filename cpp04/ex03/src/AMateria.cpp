@@ -41,6 +41,7 @@ std::string const & AMateria::getType() const
 // para lançar feitiços em um alvo (ICharacter)
 void AMateria::use(ICharacter& target)
 {
-    std::cout << "AMateria " << _type << " used on " << target.getName() << std::endl;
+    std::cout << "used " << _type << " on " << target.getName() << std::endl;
 }
+
 // O método clone é um método virtual puro que é implementado nas classes filhas Ice e Cure

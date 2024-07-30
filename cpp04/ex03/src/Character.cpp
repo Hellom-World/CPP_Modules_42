@@ -19,12 +19,12 @@ Character& Character::operator=(Character const & other)
     std::cout << "Character assignation operator" << std::endl;
     if (this != &other)
     {
-        name = other._name;
+        _name = other._name;
         for (int i = 0; i < 4; i++)
         {
-            if (inventory[i])
-                delete inventory[i];
-            inventory[i] = other._inventory[i]->clone();
+            if (_inventory[i])
+                delete _inventory[i];
+            _inventory[i] = other._inventory[i]->clone();
         }
     }
     return *this;
@@ -42,7 +42,6 @@ Character::~Character()
 
 std::string const & Character::getName() const
 {
-    std::cout << "Character getName"<< _name << std::endl;
     return _name;
 }
 
@@ -67,10 +66,16 @@ void Character::unequip(int idx)
     std::cout << "Inventory slot " << idx << " is empty" << std::endl;
 }
 
+
 void Character::use(int idx, ICharacter& target)
 {
     if (idx >= 0 && idx < 4 && _inventory[idx])
-        _inventory[idx]->use(target);
+    {
+        std::cout << this->_name << " ";
+       _inventory[idx]->use(target);
+    }
     else
+    {
         std::cout << "Inventory slot " << idx << " is empty" << std::endl;
+    }
 }

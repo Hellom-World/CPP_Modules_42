@@ -1,9 +1,9 @@
 #ifndef ICHARACTER_HPP
 #define ICHARACTER_HPP
 
-#include <iostream>
 #include "AMateria.hpp"
 
+class AMateria;
 // A classe Icharacter é uma interface que parametriza de forma obrigatória os métodos que
 // devem ser implementados por uma classe que deseja ser um personagem.
 // Por se tratar de uma interface, todos os métodos são virtuais puros.

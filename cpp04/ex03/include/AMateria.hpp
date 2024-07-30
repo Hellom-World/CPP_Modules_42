@@ -1,14 +1,17 @@
 #ifndef AMATERIA_HPP
 #define AMATERIA_HPP
 
-#include "ICharacter.hpp"
 #include <iostream>
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
 
 // AMateria é uma Classe abstrata que representa uma matéria que pode ser equipada por um personagem
 // e que pode ser usada para lançar feitiços em um alvo (ICharacter)
 // AMateria é uma classe abstrata que contém um tipo de matéria e um método use que
 // é virtual puro. AMateria é a classe base para Ice e Cure.
 
+
+class ICharacter;
 class AMateria
 {
     protected:

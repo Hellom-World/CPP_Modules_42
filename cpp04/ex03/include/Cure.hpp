@@ -1,6 +1,5 @@
 #ifndef CURE_HPP
 #define CURE_HPP
-
 #include "AMateria.hpp"
 
 // Cure é uma classe que representa uma matéria de cura que pode ser equipada por um personagem
@@ -18,7 +17,7 @@ class Cure : public AMateria
 
         Cure(std::string type);
         AMateria* clone() const;
-        void use(ICharacter& target);
+        //void use(ICharacter& target);
 };
 
 #endif

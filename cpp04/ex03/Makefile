@@ -2,9 +2,9 @@ NAME = Animal
 
 SRCS = src/main.cpp \
 		src/AMateria.cpp \
-		src/Character.cpp \
 		src/Ice.cpp \
 		src/Cure.cpp \
+		src/Character.cpp \
 
 CXX = c++
 

@@ -1,10 +1,7 @@
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 
-#include <iostream>
 #include "ICharacter.hpp"
-#include "Ice.hpp"
-#include "Cure.hpp"
 
 // A classe Character é uma classe que representa um personagem que pode equipar até 4 matérias
 // e que pode usar essas matérias em um alvo (ICharacter)

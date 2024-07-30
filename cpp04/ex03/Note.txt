@@ -1,6 +1,6 @@
 
-| | Cria Classes concretas Ice e Cure - Classes concretas sao aquelas que nao tem metodos abstratos, ou seja podem ser instanciadas.
-| | Cria a classe Abstrada AMaterial - Ou seja, nao pode ser instanciada sem com que uma classe herde e implemente o metodo abstrato.
+|X| Cria Classes concretas Ice e Cure - Classes concretas sao aquelas que nao tem metodos abstratos, ou seja podem ser instanciadas.
+|X| Cria a classe Abstrada AMaterial - Ou seja, nao pode ser instanciada sem com que uma classe herde e implemente o metodo abstrato.
 |X|Implementar na classe AMaterial a interface ICharacter com funcao membros
 OBS:. Nesse caso tempos uma classe abstrata que tambem tem uma implemetacao de um interface
 | |Criar a Classe Character que implementa a interface ICharacter

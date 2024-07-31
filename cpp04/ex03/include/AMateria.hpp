@@ -2,6 +2,7 @@
 #define AMATERIA_HPP
 
 #include <iostream>
+#include <string>
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
 
@@ -29,9 +30,7 @@ class AMateria
 
         std::string const & getType() const; //Retorna o tipo da matéria
 
-        virtual AMateria* clone() const = 0;
-        // Erro ICharacter was not declared
-        // Para
+        virtual AMateria* clone() const = 0; //Retorna um ponteiro para uma cópia da matéria
         virtual void use(ICharacter& target);
 };
 

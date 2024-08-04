@@ -31,5 +31,5 @@ Cat& Cat::operator=(const Cat& other)
 
 void Cat::makeSound() const
 {
-    std::cout << "Cat sound: HAU HAU HAU!" << std::endl;
+    std::cout << "Cat sound: Meow Meow" << std::endl;
 };

@@ -8,8 +8,9 @@ void subMain()
     Brain b1;
     const Animal* j = new Dog();
     const Animal* i = new Cat();
+    Animal k;
 
-    delete j; //não deve criar um vazamento
+    delete j;
     delete i;
 
     return;

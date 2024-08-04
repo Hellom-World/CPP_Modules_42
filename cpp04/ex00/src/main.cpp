@@ -6,7 +6,9 @@ int main()
 {
     std::cout << "------Create Animal-------" << std::endl;
     const Animal* meta = new Animal();
+    std::cout << "------Create Dog-------" << std::endl;
     const Animal* j = new Dog();
+    std::cout << "------Create Cat-------" << std::endl;
     const Animal* i = new Cat();
     const WrongAnimal* k = new WrongCat();
     const WrongCat* l = new WrongCat();
@@ -31,9 +33,13 @@ int main()
 
     std::cout << "--------Delete Animal-------" << std::endl;
     delete meta;
+    std::cout << "--------Delete Dog-------" << std::endl;
     delete j;
+    std::cout << "--------Delete Cat-------" << std::endl;
     delete i;
+    std::cout << "--------Delete WrongCat-------" << std::endl;
     delete k;
+    std::cout << "--------Delete WrongCat-------" << std::endl;
     delete l;
 
     return 0;

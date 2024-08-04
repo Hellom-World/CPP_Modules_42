@@ -4,13 +4,19 @@
 |X|Implementar na classe AMaterial a interface ICharacter com funcao membros
 OBS:. Nesse caso tempos uma classe abstrata que tambem tem uma implemetacao de um interface
 |X|Criar a Classe Character que implementa a interface ICharacter
-| |Entender o que a interface IMaterialSource e a classse MaterialSource faz
-| |Criar a Classe MaterialSource que implemeta a interface IMaterialSource
-| |Por fim, criar a main de modo a fazer todos os testes necessarios para o bom funcionameto do codigo.
-| |E necessario guardar em algum lugar as materias utilizadas
+|X|Entender o que a interface IMaterialSource e a classse MaterialSource faz
+|X|Criar a Classe MaterialSource que implemeta a interface IMaterialSource
+|X|Por fim, criar a main de modo a fazer todos os testes necessarios para o bom funcionameto do codigo.
+|X|E necessario guardar em algum lugar as materias utilizadas
+|X|Verificar o padrao das mensagens quando um material eh utilizado
+|X|Problema de alocacao, a materia nao pode ser alocada em 2 slots ao mesmo tempo.
+|X|Problema na destruicao dupla das materias que foram destruidas ao ter inventory cheio
+| |Verificar folha de avaliacao e corrigir o que precisar ser corrigido.
 
 Diario de bordo.
-Isso basicamente eh a criacao do desenho do capitao planeta. Temos que criar personagens com superpoderes, no caso personagem que podem utilizar poderes que se esgotam e os poderem sao Gelo e Cura. Graças a Deus ninguem vai morrer ou perder sangue para conclusao desse projeto. Basicamente vamos atacar ou curar um personagem mais nao vai ser preciso definir as consequencias disso na vitalidade do personagem, ou seja, vai ser um ataque de mentirinha.
+Isso basicamente eh a criacao do desenho do capitao planeta. Temos que criar personagens com superpoderes, no caso personagem que podem utilizar poderes(materias) que encontram-se em seus slots e os poderem sao Gelo e Cura. Graças a Deus ninguem vai morrer ou perder sangue para conclusao desse projeto. Basicamente vamos atacar ou curar um personagem mais nao vai ser preciso definir as consequencias disso na vitalidade do personagem, ou seja, vai ser um ataque de mentirinha.
+
+
 
 A primeira coisa foi definir o que era interface, classe abstrata e classe concreta.
 Basicamente temos niveis de abstracao que contem atributos e metodos obrigatorios e isso que define uma interface pois ela basicamente contem metodos setados como =0 que obriga a classe que for herdar/implementar essa interface a definir uma funcionalidade para esses metodos.

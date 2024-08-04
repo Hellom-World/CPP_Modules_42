@@ -1,5 +1,9 @@
 #include "../include/Character.hpp"
 
+ICharacter::~ICharacter() {
+    std::cout << "ICharacter destructor" << std::endl;
+}
+
 Character::Character(std::string name)
 {
     std::cout << "Character default constructor" << std::endl;
@@ -32,6 +36,11 @@ Character& Character::operator=(Character const & other)
 
 Character::~Character()
 {
+    for (int i = 0; i < 4; i++)
+    {
+        if (_inventory[i])
+            delete _inventory[i];
+    }
     std::cout << "Character destructor" << std::endl;
 
 }
@@ -48,23 +57,39 @@ void Character::equip(AMateria* materia)
         std::cout << "Not equiped invalid materia" << std::endl;
         return;
     }
+    if (materia->getIsLocked(*materia))
+    {
+        std::cout << "Material is already in use." << std::endl;
+        return;
+    }
     for (int i = 0; i < 4; i++)
     {
         if (!_inventory[i])
         {
             _inventory[i] = materia;
             std::cout << "AMateria " << materia->getType() << " equipped in " << this->_name << std::endl;
+            materia->setLockMateria(true);
             return;
         }
     }
-    std::cout << "Inventory is full" << std::endl;
+    std::cout << "Inventory is full - Materia will be deleted." << std::endl;
+    materia->setLockMateria(false);
+
 }
 
 void Character::unequip(int idx)
 {
     if (idx >= 0 && idx < 4)
+    {
+        _inventory[idx]->setLockMateria(false);
         _inventory[idx] = NULL;
-    std::cout << "Inventory slot " << idx << " is empty" << std::endl;
+    }
+    else
+    {
+        std::cout << "Inventory slot " << idx << " is invalid." << std::endl;
+        return;
+    }
+    std::cout << "Inventory slot " << idx << " is empty." << std::endl;
 }
 
 void Character::getInventory() const

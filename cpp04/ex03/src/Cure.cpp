@@ -7,7 +7,7 @@ Cure::Cure() : AMateria("cure")
 
 Cure::~Cure()
 {
-    std::cout << "Cure destructor" << std::endl;
+        std::cout << "Cure destructor" << std::endl;
 }
 
 Cure::Cure(const Cure& copy) : AMateria(copy)
@@ -27,6 +27,8 @@ Cure& Cure::operator=(const Cure& other)
 
 Cure::Cure(std::string type) : AMateria(type)
 {
+    if (type != "cure")
+        _type = "cure";
     std::cout << "Cure parameterized constructor" << std::endl;
 }
 
@@ -40,5 +42,6 @@ void Cure::use(ICharacter& target)
 {
     std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
 }
+
 
 

@@ -3,11 +3,13 @@
 AMateria::AMateria()
 {
     std::cout <<  "AMateria default constructor" << std::endl;
+    _locked = false;
     _type = "default";
 }
 
 AMateria::~AMateria()
 {
+    _locked = false;
     std::cout <<  "AMateria destructor" << std::endl;
 }
 
@@ -19,15 +21,22 @@ AMateria::AMateria(const AMateria& copy)
 
 AMateria::AMateria(std::string type)
 {
+    if (type != "ice" && type != "cure")
+        _type = "default";
     std::cout <<  "AMateria parameterized constructor" << std::endl;
+    _locked = false;
     _type = type;
 }
 
 AMateria& AMateria::operator=(const AMateria& other)
 {
     std::cout <<  "AMateria assignation operator" << std::endl;
-    if (this != &other)
+    if (this != &other )
+    {
         _type = other._type;
+        _locked = other._locked;
+    }
+
     return *this;
 }
 
@@ -43,5 +52,30 @@ void AMateria::use(ICharacter& target)
 {
     std::cout << "used " << _type << " on " << target.getName() << std::endl;
 }
+bool AMateria::getIsLocked(const AMateria& materia) const
+{
+    if (materia._locked == true)
+    {
+        std::cout << "Materia is locked: " << materia._locked << std::endl;
+        return materia._locked;
+    }
+    else
+    {
+        std::cout << "Materia is not locked: " << materia._locked << std::endl;
+        return materia._locked;
+    }
+}
 
-// O método clone é um método virtual puro que é implementado nas classes filhas Ice e Cure
+void AMateria::setLockMateria(bool locked)
+{
+    if (locked == true)
+    {
+        std::cout << "Material was locked" << std::endl;
+        _locked = true;
+    }
+    else
+    {
+        std::cout << "Material has been unlocked" << std::endl;
+        _locked = false;
+    }
+}

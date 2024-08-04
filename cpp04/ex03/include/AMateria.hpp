@@ -17,10 +17,10 @@ class AMateria
 {
     protected:
         std::string _type;
+        bool _locked;
     public:
         AMateria();
         virtual ~AMateria();
-        //~AMateria();
 
         // Copy constructor and parameterized constructor
         AMateria(const AMateria& copy);
@@ -32,6 +32,9 @@ class AMateria
 
         virtual AMateria* clone() const = 0; //Retorna um ponteiro para uma cópia da matéria
         virtual void use(ICharacter& target);
+        bool getIsLocked(const AMateria& materia) const;
+        void setLockMateria(bool locked);
+
 };
 
 #endif

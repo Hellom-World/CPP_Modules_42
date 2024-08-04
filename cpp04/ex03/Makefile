@@ -1,10 +1,11 @@
-NAME = Animal
+NAME = Game
 
 SRCS = src/main.cpp \
 		src/AMateria.cpp \
 		src/Ice.cpp \
 		src/Cure.cpp \
 		src/Character.cpp \
+		src/MateriaSource.cpp
 
 CXX = c++
 

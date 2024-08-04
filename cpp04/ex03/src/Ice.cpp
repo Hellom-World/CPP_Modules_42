@@ -27,6 +27,8 @@ Ice& Ice::operator=(const Ice& other)
 
 Ice::Ice(std::string type) : AMateria(type)
 {
+    if (type != "ice")
+        _type = "ice";
     std::cout << "Ice parameterized constructor" << std::endl;
 }
 

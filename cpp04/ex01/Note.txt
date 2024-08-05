@@ -23,4 +23,8 @@ e a outra metade com objetos Dog.
 | | Verificar se a copia eh uma copia profunda.
 
 *Mais testes
-| |
+| |Tem que existir uma nova classe chamada Brain
+| |Cat e dog tem o atributo privado Brain
+| |O atributo brain nao esta dentro da classe animal
+| |A classe brain tem saidas especificas de criacao e destruicao
+| |Teste para copia profunda na main

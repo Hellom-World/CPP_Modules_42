@@ -5,10 +5,9 @@
 void subMain()
 {
     std::cout << "-------start SUBMAIN--------------" << std::endl;
-    Brain b1;
     const Animal* j = new Dog();
     const Animal* i = new Cat();
-    //Animal k;
+    //Animal test;
 
     delete j; //não deve criar um vazamento
     delete i;
@@ -28,13 +27,6 @@ void subMandatory(int n)
             animals[i] = new Dog();
         else
             animals[i] = new Cat();
-    }
-
-
-    for (int i = 0; i < n; i++)
-    {
-        std::cout << "id: " << i << " - ";
-        delete animals[i];
     }
 
     std::cout << "------------------------------------" << std::endl << std::endl;
@@ -63,6 +55,13 @@ void subMandatory(int n)
     //a->meditation();
     std::cout << "v------Destructor------v" << std::endl;
     delete a;
+
+    std::cout << std::endl << "--------Destructor SubMandatory--------" << std::endl;
+    for (int i = 0; i < n; i++)
+    {
+        std::cout << "id: " << i << " - ";
+        delete animals[i];
+    }
     return;
 }
 

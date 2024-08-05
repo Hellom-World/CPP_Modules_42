@@ -1,4 +1,4 @@
-NAME = life
+NAME = Animal
 
 SRCS = src/main.cpp \
 		src/Brain.cpp \

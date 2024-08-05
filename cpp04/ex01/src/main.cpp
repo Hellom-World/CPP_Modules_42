@@ -31,12 +31,6 @@ void subMandatory(int n)
     }
 
 
-    for (int i = 0; i < n; i++)
-    {
-        std::cout << "id: " << i << " - ";
-        delete animals[i];
-    }
-
     std::cout << "------------------------------------" << std::endl << std::endl;
     std::cout << "-------TEST-COPY-CONSTRUCTOR--------" << std::endl;
 
@@ -55,14 +49,22 @@ void subMandatory(int n)
     std::cout <<"DOG a idea: "<< a->getBrainIdea(0) << std::endl;
     std::cout <<"DOG b idea: "<< b.getBrainIdea(0) << std::endl;
     std::cout <<"DOG c idea: "<< c.getBrainIdea(0) << std::endl;
-    a->setBrainIdea(0, "Acho que sou um cachorro");
+    a->setBrainIdea(2, "Acho que sou um cachorro");
     std::cout <<"DOG a idea: "<< a->getBrainIdea(0) << std::endl;
     std::cout <<"DOG b idea: "<< b.getBrainIdea(0) << std::endl;
     std::cout <<"DOG c idea: "<< c.getBrainIdea(0) << std::endl;
 
+
     //a->meditation();
     std::cout << "v------Destructor------v" << std::endl;
     delete a;
+
+    std::cout << std::endl << "--------Destructor SubMandatory--------" << std::endl;
+    for (int i = 0; i < n; i++)
+    {
+        std::cout << "id: " << i << " - ";
+        delete animals[i];
+    }
     return;
 }
 

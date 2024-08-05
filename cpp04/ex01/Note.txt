@@ -11,3 +11,16 @@ Pendencias
 |X| - Verificar folha de avalicao e fazer os apontamentos do ex01
 |X| - Verificar saidas especificas da classe Brain
 |X| - Testar com destructor sem virtual
+
+Relatorio
+*Do subjects
+| | Cat e Dog devem ter um atributo privado chamado Brain*. E Brain contem um array de 100
+std::string chamado ideias.
+| | Na construcao Cat e Dog criacao seu Brain e na destruicao Cat e Dog destruirao seu Brain
+| | Na funcao main deve ser criado um array de objetos Animal e ser preenchido metade de objetos Cat
+e a outra metade com objetos Dog.
+| | No final da main deve-se percorrer esse array e deletar corretamente cada campo
+| | Verificar se a copia eh uma copia profunda.
+
+*Mais testes
+| |

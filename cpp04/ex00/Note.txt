@@ -1,0 +1,18 @@
+Relatorio
+
+*Do subjects
+| |Para cada exercicio os construtores e destrutores devem exibir mensagens especificas
+| |Deve existir a classe base Animal que contem um std::string type que eh protegido
+| |Deve estar implementado a classe Dog e a classe Cat que herdam, ambos, da classe Animal
+| |As duas classes(Cat e Dog) devem definir o campo "type" de acordo com seus tipos.
+Se for Dog(type = "Dog") e Cat(type = "Cat"). O type do Objeto Animal pode estar vazio ou
+ser atribuido o valor que eu quiser.
+| |Cada animal deve ser capaz de usar a funcao membro makeSound() ele ela deve imprimir o som apropriado.
+
+*Mais testes
+| |Classes tem que esta em forma canonica ortodoxa
+| |Classe animal eh instansiavel
+| |Classe Dog e Cat que herdam de animal. Saber explicar a ordem dos contrutores e destrutores.
+| |Verificar type atribuido na criacao de cada classe herdeira(Cat e Dog)
+| |A funcao membro makeSound deve ser virtual e deve existir uma classe wrongAnimal com o makeSound
+sem virtual e saber explicar a diferenca

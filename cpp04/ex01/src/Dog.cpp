@@ -50,6 +50,7 @@ std::string Dog::getBrainIdea(int index) const
 
 void Dog::meditation() const
 {
+    std::cout << "-----Dog meditation-----" << std::endl;
     for (int i = 0; i < 100; i++)
         std::cout << _type <<" Idea " << i << ": " << _brain->getIdea(i) << std::endl;
 };

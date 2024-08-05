@@ -49,6 +49,7 @@ void Cat::getBrainIdea(int index) const
 
 void Cat::meditation() const
 {
+    std::cout << "----Cat meditation-----" << std::endl;
     for (int i = 0; i < 100; i++)
         std::cout << _type << " Idea " << i << ": " << _brain->getIdea(i) << std::endl;
 };

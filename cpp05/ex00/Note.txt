@@ -1,0 +1,17 @@
+Resumo subjects (Makefile, main.cpp, Bureaucrat.{h, hpp}, Bureaucrat.cpp)
+*Vamos criar um pesadelo artificial de escritorios, corredores, formularios e filas de espera
+| |Criar um burocrata com um nome e um grau que varia de 1(Maior grau) e 150(menor grau)
+| |Qualquer tentativa de instanciar um burocrata com grau invalido deve ser exibido uma mensagem
+Bureaucrat::GradeTooHighException ou uma Bureaucrat::GradeTooLowException.
+| |Eh preciso fazer getters para ambos os atributos do burocrata. getName() e getGrade()
+| |Implementar tambem 2 funcoes membro de incrementar e decrementar o grau.
+Deve exibir a mesma mensagem de exceçao para grau fora do limite.
+*As exceçoes devem ser sempre lançadas usando o try catch
+| |Deve ser implementado um operador de inserçao para imprimir para imprimir
+<nome>, burocrata de grau <grau>.
+| |Entregar com testes que mostram que tudo funciona como o esperado
+
+
+Conceitos estudados
+| | Nested Classa - Classes aninhadas
+(https://w2websites.com/glossario/o-que-e-nested-class-classe-aninhada/)

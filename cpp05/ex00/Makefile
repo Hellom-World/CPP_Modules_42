@@ -1,6 +1,6 @@
 NAME = Burocracy
 
-SRCS =
+SRCS = src/main.cpp src/Bureaucrat.cpp
 
 CXX = c++
 

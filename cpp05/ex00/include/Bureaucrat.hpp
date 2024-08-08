@@ -23,6 +23,8 @@ public:
     void incrementGrade();
     void decrementGrade();
 
+    void setGrade(int grade);
+
     // Nested Classes são classes que estão dentro de outras classes
     class GradeTooHighException : public std::exception
     {
@@ -34,7 +36,7 @@ public:
     {
     public:
         virtual const char *what() const throw();
-};
+    };
 };
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);
 

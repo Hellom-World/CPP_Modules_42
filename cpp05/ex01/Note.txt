@@ -1,0 +1,19 @@
+Resumo subjects (Makefile, main.cpp, Bureaucrat.{h, hpp}, Bureaucrat.cpp + Form.cpp, Form.{h, hpp})
+*Vamos criar um pesadelo artificial de escritorios, corredores, formularios e filas de espera
+*Aqui vamos criar o formulario
+| |Criar uma classe Form que contenha:
+    1. |x|Um nome constante
+    2. |x|Um booleano indicando se esta assinado.(Na construcao nao está).
+    3. |x|Um grau constante necessario para assina-lo.
+    4. |x|E um grau constante necessario para executa-lo
+|x|Os graus do Form devem seguir as mesmas regras que se aplicam ao burocrata
+Se o grau do formulario estiver fora dos limites: Form::GradeTooHighException e Form::GradeTooLowException.
+|x|Como no burocrata, escrever getters para todos os atributos
+|x|Sobrecarga de operador de inserçao(<<) que imprima todas as informacoes do formulario.
+| |Adicione uma funcao membro ao Form beSigned() que recebe um burocrata:
+    1. | |Ela altera os status do formulario para assinado se o grau do burocrata for alto o suficiente
+    (maior ou igual ao grau necessario).
+    2. | |
+| |Adicione uma funcao membro ao Form signForm() ao burocrata
+    1. | |Se o formulario for assinado ele imprimira algo como: <burocrata> assinou <formulário>
+    2. | |Caso contrario: <burocrata> não pôde assinar <formulário> porque <razão>

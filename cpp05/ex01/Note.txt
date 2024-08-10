@@ -11,9 +11,12 @@ Se o grau do formulario estiver fora dos limites: Form::GradeTooHighException e 
 |x|Como no burocrata, escrever getters para todos os atributos
 |x|Sobrecarga de operador de inserçao(<<) que imprima todas as informacoes do formulario.
 | |Adicione uma funcao membro ao Form beSigned() que recebe um burocrata:
-    1. | |Ela altera os status do formulario para assinado se o grau do burocrata for alto o suficiente
+    1. |X|Ela altera os status do formulario para assinado se o grau do burocrata for alto o suficiente
     (maior ou igual ao grau necessario).
-    2. | |
 | |Adicione uma funcao membro ao Form signForm() ao burocrata
-    1. | |Se o formulario for assinado ele imprimira algo como: <burocrata> assinou <formulário>
-    2. | |Caso contrario: <burocrata> não pôde assinar <formulário> porque <razão>
+    1. |X|Se o formulario for assinado ele imprimira algo como: <burocrata> assinou <formulário>
+    2. |X|Caso contrario: <burocrata> não pôde assinar <formulário> porque <razão>
+
+
+Em falta
+| |Verificacoes para avalicao

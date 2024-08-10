@@ -1,42 +1,58 @@
 #include "../include/Form.hpp"
 #include <iostream>
 
-int main(void)
+void testValidBureaucrat()
 {
-    //Form test;
-
-    Form *form = new Form("Form", 1, 1);
-    Form *form10 = new Form("Form10", 2, 1);
-    Bureaucrat *bureaucrat = new Bureaucrat("John", 1);
-
-    std::cout << *form << std::endl;
-    std::cout << *bureaucrat << std::endl;
     try
     {
-        form->beSigned(*bureaucrat);
+        Bureaucrat bureaucrat("Bureaucrat", 1);
+        std::cout << bureaucrat;
     }
     catch (std::exception &e)
     {
         std::cerr << e.what() << std::endl;
     }
-    try {
-        form10->beSigned(*bureaucrat);
+    return;
+}
+void testValidForm()
+{
+    try
+    {
+        Bureaucrat bureaucrat("Bureaucrat", 1);
+        Form form("plan", 1, 1);
+        std::cout << form;
+        form.beSigned(bureaucrat);
+        std::cout << form;
     }
     catch (std::exception &e)
     {
         std::cerr << e.what() << std::endl;
     }
-    Form *form2 (form);
-    std::cout << *form2 << std::endl;
+    return;
+}
+void testInvalidBureucratGradeToForm()
+{
+    try
     {
-        Form form3("Form3", 10, 20);
-        form3 = *form2;
-        std::cout << form3 << std::endl;
+        Bureaucrat bureaucrat("Bureaucrat", 150);
+        Form form("plan", 1, 1);
+        std::cout << form;
+        form.beSigned(bureaucrat);
+        std::cout << form;
     }
-
-
-    std::cout << *form << std::endl;
-    delete form;
-    delete bureaucrat;
+    catch (std::exception &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    return;
+}
+int main(void)
+{
+    testValidBureaucrat();
+    std::cout << "------------------------------------------" << std::endl;
+    testValidForm();
+    std::cout << "------------------------------------------" << std::endl;
+    testInvalidBureucratGradeToForm();
+    std::cout << "------------------------------------------" << std::endl;
     return 0;
 }

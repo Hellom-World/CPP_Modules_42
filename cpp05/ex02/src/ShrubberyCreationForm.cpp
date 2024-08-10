@@ -9,6 +9,7 @@ ShrubberyCreationForm::ShrubberyCreationForm() : Form("ShrubberyCreationForm", 1
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form(target + "_shrubbery", 145, 137)
 {
     _target = target;
+    std::cout << "*ShrubberyCreationForm parameter constructor*" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : Form(copy)

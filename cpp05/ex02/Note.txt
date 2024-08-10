@@ -4,20 +4,24 @@
         2. |x|Grade 145 para assinatura e 137 para execução.
         3. |x|Cria um arquivo <target>_shrubbery no diretório de trabalho e escreve árvores ASCII
 dentro dele.
-    | |RobotomyRequestForm (50% de chance de sucesso).
-        1. | |Definir alvo no construtor.
-        2. | |Definir Grade 72 para assinatura e 45 para execução no construtor.
-        3. | |Faz alguns ruídos de perfuração. Então, informa que <target> foi robotomizado
+    |X|RobotomyRequestForm (50% de chance de sucesso).
+        1. |X|Definir alvo no construtor.
+        2. |X|Definir Grade 72 para assinatura e 45 para execução no construtor.
+        3. |X|Faz alguns ruídos de perfuração. Então, informa que <target> foi robotomizado
 com sucesso 50% das vezes.
-        4. | |Caso contrário, informa que a robotomia falhou.
-    | |PresidentialPardonForm (perdoa alguém).
-        1. | |Definir alvo no construtor.
-        2. | |Definir Grade 25 para assinatura, 5 para execução no construtor.
-        3. | |Informa que <target> foi perdoado por Zaphod Beeblebrox.
+        4. |X|Caso contrário, informa que a robotomia falhou.
+    |X|PresidentialPardonForm (perdoa alguém).
+        1. |X|Definir alvo no construtor.
+        2. |x|Definir Grade 25 para assinatura, 5 para execução no construtor.
+        3. |X|Informa que <target> foi perdoado por Zaphod Beeblebrox.
 
-    | |Criar funcao membro execute() para cada formulario - execute(Bureaucrat const & executor) const
-        1. | |Elas devem verificar se o formulário é assinável e se o grau do burocrata é suficiente.
-        2. | |Caso contrário, lance uma Form::GradeTooLowException.
+    |X|Criar funcao membro execute() para cada formulario - execute(Bureaucrat const & executor) const
+        1. |X|Elas devem verificar se o formulário é assinável e se o grau do burocrata é suficiente.
+        2. |X|Caso contrário, lance uma Form::GradeTooLowException.
 
-    | |Escrever a função membro executeForm() no Burocrata. - executeForm(AForm const & form)
-        1. | |Ela deve tentar executar o formulário ou lançar uma exceção.
+    |x|Escrever a função membro executeForm() no Burocrata. - executeForm(AForm const & form)
+        1. |X|Ela deve tentar executar o formulário ou lançar uma exceção.
+
+
+#Necessario fazer
+| | Prepara main para avalicao

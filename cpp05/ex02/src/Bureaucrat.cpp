@@ -11,6 +11,8 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
     if (grade > 150)
         throw Bureaucrat::GradeTooLowException();
     _grade = grade;
+
+    std::cout << "*Bureaucrat parameter constructor*" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name), _grade(copy._grade)
@@ -82,7 +84,6 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat)
 
 void Bureaucrat::signForm(bool isSigned, const Form &form) const
 {
-    std::cout << _name << " tries to sign " << form.getName() << std::endl;
     if (isSigned)
         std::cout << _name << " signs " << form.getName() << std::endl;
     else

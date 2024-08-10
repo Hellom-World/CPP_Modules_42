@@ -1,6 +1,6 @@
 #Adicionar um estagiario ao projeto Intern
-| |Criar um estagiario capaz de retornar uma instancia de 3 formularios criados anteriormente
-    1. | |Criar uma class intern com padrao ortodoxo
-    2. | |Criar a funcao membro makeForm() que aceita um tipo de formulario e um alvo.
-    3. | |makeForm() retorna uma instância dos três formulários criados anteriormente.
-    4. | |Deve exibir uma mensagem do tipo Intern creates <form>
+|x|Criar um estagiario capaz de retornar uma instancia de 3 formularios criados anteriormente
+    1. |X|Criar uma class intern com padrao ortodoxo
+    2. |X|Criar a funcao membro makeForm() que aceita um tipo de formulario e um alvo.
+    3. |X|makeForm() retorna uma instância dos três formulários criados anteriormente.
+    4. |X|Deve exibir uma mensagem do tipo Intern creates <form>

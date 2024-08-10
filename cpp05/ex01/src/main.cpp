@@ -48,11 +48,12 @@ void testInvalidBureucratGradeToForm()
 }
 int main(void)
 {
-    testValidBureaucrat();
-    std::cout << "------------------------------------------" << std::endl;
-    testValidForm();
-    std::cout << "------------------------------------------" << std::endl;
-    testInvalidBureucratGradeToForm();
-    std::cout << "------------------------------------------" << std::endl;
+
+    //testValidBureaucrat();
+    //std::cout << "------------------------------------------" << std::endl;
+    //testValidForm();
+    //std::cout << "------------------------------------------" << std::endl;
+    //testInvalidBureucratGradeToForm();
+    //std::cout << "------------------------------------------" << std::endl;
     return 0;
 }

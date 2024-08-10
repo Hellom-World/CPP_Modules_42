@@ -17,5 +17,4 @@ Conceitos estudados
 (https://w2websites.com/glossario/o-que-e-nested-class-classe-aninhada/)
 
 Em falta
-| |Verificacoes para avalicao
-hwtab
+|x|Verificacoes para avalicao

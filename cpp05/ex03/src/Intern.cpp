@@ -55,6 +55,7 @@ AForm *Intern::makeForm(std::string formName, std::string target)
     }
     if (form == NULL)
         throw FormNotFoundException();
+    std::cout << "Intern creates " << formName << std::endl;
     return form;
 }
 

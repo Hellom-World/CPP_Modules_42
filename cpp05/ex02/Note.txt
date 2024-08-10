@@ -1,0 +1,23 @@
+*Vamos crair 3 classes de formulario que herdam da classe formulario
+    |x|ShrubberyCreationForm (cria um arbusto no arquivo).
+        1. |x|Definir alvo
+        2. |x|Grade 145 para assinatura e 137 para execução.
+        3. |x|Cria um arquivo <target>_shrubbery no diretório de trabalho e escreve árvores ASCII
+dentro dele.
+    | |RobotomyRequestForm (50% de chance de sucesso).
+        1. | |Definir alvo no construtor.
+        2. | |Definir Grade 72 para assinatura e 45 para execução no construtor.
+        3. | |Faz alguns ruídos de perfuração. Então, informa que <target> foi robotomizado
+com sucesso 50% das vezes.
+        4. | |Caso contrário, informa que a robotomia falhou.
+    | |PresidentialPardonForm (perdoa alguém).
+        1. | |Definir alvo no construtor.
+        2. | |Definir Grade 25 para assinatura, 5 para execução no construtor.
+        3. | |Informa que <target> foi perdoado por Zaphod Beeblebrox.
+
+    | |Criar funcao membro execute() para cada formulario - execute(Bureaucrat const & executor) const
+        1. | |Elas devem verificar se o formulário é assinável e se o grau do burocrata é suficiente.
+        2. | |Caso contrário, lance uma Form::GradeTooLowException.
+
+    | |Escrever a função membro executeForm() no Burocrata. - executeForm(AForm const & form)
+        1. | |Ela deve tentar executar o formulário ou lançar uma exceção.

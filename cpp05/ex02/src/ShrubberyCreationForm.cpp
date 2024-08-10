@@ -1,18 +1,18 @@
 #include "../include/ShrubberyCreationForm.hpp"
 #include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm() : Form("ShrubberyCreationForm", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137)
 {
     _target = "default";
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form(target + "_shrubbery", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(target + "_shrubbery", 145, 137)
 {
     _target = target;
     std::cout << "*ShrubberyCreationForm parameter constructor*" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : Form(copy)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : AForm(copy)
 {
     _target = copy._target;
 }
@@ -21,7 +21,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 {
     if (this == &copy)
         return (*this);
-    Form::operator=(copy);
+    AForm::operator=(copy);
     _target = copy._target;
     return (*this);
 }
@@ -34,10 +34,10 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
     // Check if the form is signed
     if (!getSigned())
-        throw Form::UnsignedFormException();
+        throw AForm::UnsignedFormException();
     // Check if the executor has the right grade
     if (executor.getGrade() > getGradeToExecute())
-        throw Form::GradeTooLowException();
+        throw AForm::GradeTooLowException();
 
     std::string tmp = _target + "_shrubbery";
 

@@ -1,16 +1,16 @@
 #include "../include/PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : Form("PresidentialPardonForm", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5)
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form(target, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm(target, 25, 5)
 {
     _target = target;
     std::cout << "*PresidentialPardonForm parameter constructor*" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) : Form(copy)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) : AForm(copy)
 {
     _target = copy._target;
 }
@@ -19,7 +19,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 {
     if (this == &copy)
         return *this;
-    Form::operator=(copy);
+    AForm::operator=(copy);
     _target = copy._target;
     return *this;
 }
@@ -32,10 +32,10 @@ void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
     // Check if the form is signed
     if (!getSigned())
-        throw Form::UnsignedFormException();
+        throw AForm::UnsignedFormException();
     // Check if the executor has the right grade
     if (executor.getGrade() > getGradeToExecute())
-        throw Form::GradeTooLowException();
+        throw AForm::GradeTooLowException();
 
     std::cout << _target << " has been pardoned by Zafod Beeblebrox" << std::endl;
 }

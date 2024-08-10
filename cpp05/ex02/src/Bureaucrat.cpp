@@ -82,7 +82,7 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat)
 
 //ex01
 
-void Bureaucrat::signForm(bool isSigned, const Form &form) const
+void Bureaucrat::signForm(bool isSigned, const AForm &form) const
 {
     if (isSigned)
         std::cout << _name << " signs " << form.getName() << std::endl;

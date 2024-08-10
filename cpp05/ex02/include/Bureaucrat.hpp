@@ -26,6 +26,7 @@ public:
     void decrementGrade();
 
     void signForm(bool isSigned, const AForm &form) const;
+    void executeForm(const AForm &form) const;
 
     void setGrade(int grade);
 

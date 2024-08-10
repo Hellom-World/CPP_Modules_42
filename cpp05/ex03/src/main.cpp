@@ -48,8 +48,7 @@ void testInternClass()
     form->execute(bureaucrat);
     delete form;
     std::cout << "-------------------------------------" << std::endl;
-    //form = intern.makeForm("UnknownForm", "home");
-    //delete form;
+
 }
 void printDiv()
 {
@@ -59,12 +58,26 @@ void printDiv()
 }
 int main(void)
 {
-    testShrubberyCreationFormAndExecute();
+    /*testShrubberyCreationFormAndExecute();
     printDiv();
     testRobotomyRequestFormAndExecute();
     printDiv();
     testPresidentialPardonFormAndExecute();
     printDiv();
-    testInternClass();
+    testInternClass(); */
+
+    //test invalid intern class
+    try {
+        Intern intern;
+        AForm *form = intern.makeForm("InvalidForm", "home");
+        Bureaucrat bureaucrat("bureaucrat", 1);
+        form->beSigned(bureaucrat);
+        form->execute(bureaucrat);
+        delete form;
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
     return 0;
 }

@@ -89,3 +89,18 @@ void Bureaucrat::signForm(bool isSigned, const AForm &form) const
     else
         std::cout << _name << " cannot sign " << form.getName() << " because " << _name << "'s grade is too low" << std::endl;
 }
+
+void Bureaucrat::executeForm(const AForm &form) const
+{
+    if (!form.getSigned())
+    {
+        std::cout << _name << " cannot execute " << form.getName() << " because the form is unsigned" << std::endl;
+        return;
+    }
+    if (_grade > form.getGradeToExecute())
+    {
+        std::cout << _name << " cannot execute " << form.getName() << " because " << _name << "'s grade is too low" << std::endl;
+        return;
+    }
+    std::cout << _name << " executes " << form.getName() << std::endl;
+}

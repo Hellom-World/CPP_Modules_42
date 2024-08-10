@@ -61,7 +61,7 @@ AForm *Intern::makeForm(std::string formName, std::string target)
 
 const char *Intern::FormNotFoundException::what() const throw()
 {
-    return "Form not found";
+    return "ERROR: Form not found";
 }
 
 AForm *Intern::createShrubberyCreationForm(std::string target)

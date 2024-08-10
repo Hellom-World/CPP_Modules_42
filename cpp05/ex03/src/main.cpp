@@ -1,6 +1,7 @@
 #include "../include/ShrubberyCreationForm.hpp"
 #include "../include/RobotomyRequestForm.hpp"
 #include "../include/PresidentialPardonForm.hpp"
+#include "../include/Intern.hpp"
 
 void testShrubberyCreationFormAndExecute()
 {
@@ -28,14 +29,42 @@ void testPresidentialPardonFormAndExecute()
     presidential.beSigned(bureaucrat);
     presidential.execute(bureaucrat);
 }
-
+void testInternClass()
+{
+    Intern intern;
+    AForm *form = intern.makeForm("ShrubberyCreationForm", "home");
+    Bureaucrat bureaucrat("bureaucrat", 1);
+    form->beSigned(bureaucrat);
+    form->execute(bureaucrat);
+    delete form;
+    std::cout << "-------------------------------------" << std::endl;
+    form = intern.makeForm("RobotomyRequestForm", "home");
+    form->beSigned(bureaucrat);
+    form->execute(bureaucrat);
+    delete form;
+    std::cout << "-------------------------------------" << std::endl;
+    form = intern.makeForm("PresidentialPardonForm", "home");
+    form->beSigned(bureaucrat);
+    form->execute(bureaucrat);
+    delete form;
+    std::cout << "-------------------------------------" << std::endl;
+    //form = intern.makeForm("UnknownForm", "home");
+    //delete form;
+}
+void printDiv()
+{
+    std::cout << "                   |                    " << std::endl;
+    std::cout << "-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-" << std::endl;
+    std::cout << "                   |                    " << std::endl;
+}
 int main(void)
 {
     testShrubberyCreationFormAndExecute();
-    std::cout << "---------------------" << std::endl;
+    printDiv();
     testRobotomyRequestFormAndExecute();
-    std::cout << "---------------------" << std::endl;
+    printDiv();
     testPresidentialPardonFormAndExecute();
-
+    printDiv();
+    testInternClass();
     return 0;
 }

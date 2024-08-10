@@ -4,9 +4,9 @@
 #include <iostream>
 #include <string>
 #include <exception>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 class Bureaucrat
 {
 private:
@@ -25,7 +25,7 @@ public:
     void incrementGrade();
     void decrementGrade();
 
-    void signForm(bool isSigned, const Form &form) const;
+    void signForm(bool isSigned, const AForm &form) const;
 
     void setGrade(int grade);
 

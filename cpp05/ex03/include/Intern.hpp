@@ -1,10 +1,13 @@
 #ifndef INTERN_HPP
 #define INTERN_HPP
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
+class AForm;
 class Intern
 {
+private:
+    std::string _formTypes[3];
 public:
 
     Intern();
@@ -12,7 +15,11 @@ public:
     Intern &operator=(const Intern &copy);
     ~Intern();
 
-    Form *makeForm(std::string formName, std::string target);
+    AForm *makeForm(std::string forName, std::string target);
+
+    AForm *createShrubberyCreationForm(std::string target);
+    AForm *createRobotomyRequestForm(std::string target);
+    AForm *createPresidentialPardonForm(std::string target);
 
     class FormNotFoundException : public std::exception
     {

@@ -3,18 +3,18 @@
 #include <ctime>
 
 
-RobotomyRequestForm::RobotomyRequestForm() : Form("RobotomyRequestForm", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45)
 {
     _target = "default";
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form( target, 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm( target, 72, 45)
 {
     _target = target;
     std::cout << "*RobotomyRequestForm parameter constructor*" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : Form(copy)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : AForm(copy)
 {
     _target = copy._target;
 }
@@ -23,7 +23,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &c
 {
     if (this == &copy)
         return *this;
-    Form::operator=(copy);
+    AForm::operator=(copy);
     _target = copy._target;
     return *this;
 }
@@ -36,10 +36,10 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
         // Check if the form is signed
     if (!getSigned())
-        throw Form::UnsignedFormException();
+        throw AForm::UnsignedFormException();
     // Check if the executor has the right grade
     if (executor.getGrade() > getGradeToExecute())
-        throw Form::GradeTooLowException();
+        throw AForm::GradeTooLowException();
 
     std::srand(std::time(0));
     std::cout << "*drill drill drill* ";

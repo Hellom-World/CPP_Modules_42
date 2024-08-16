@@ -1,0 +1,25 @@
+#Funcoes permitidas: Qualquer função para converter de uma string para um int, float ou double. Isso ajudará, mas não fará o trabalho todo.
+
+| |Escreva uma clase scalarConvert que tera apenas 1 metodo estatico "convert" que recebe como parametro uma representacao em string de um literal c++ em sua forma mais simples e exibira seu nome nos seguintes tipos escalares
+    | |char
+    | |int
+    | |float
+    | |double
+
+| |Como esta classe não precisa armazenar nada, ela não deve ser instanciável pelos usuários.
+| |Exceto para parâmetros char, apenas a notação decimal será usada.
+| |Se uma conversão para char não for exibível, imprima uma mensagem informativa.
+
+-------------------------------------------------------------------------------------------------
+Exemplos de literais int: 0, -42, 42...
+Exemplos de literais float: 0.0f, -4.2f, 4.2f...
+Você também deve lidar com esses pseudo-literais (você sabe, para a ciência): -inff, +inff e nanf.
+
+Exemplos de literais double: 0.0, -4.2, 4.2...
+Você também deve lidar com esses pseudo-literais (você sabe, por diversão): -inf, +inf e nan.
+--------------------------------------------------------------------------------------------------
+
+| |Detectar o tipo do literal passado como parametro
+| |Converte-lo de string para tipo real
+| |Em seguida converter ele para os outro 3 tipos
+| |Por fim, exiba os resultados

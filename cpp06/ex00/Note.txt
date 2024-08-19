@@ -1,4 +1,5 @@
 #Funcoes permitidas: Qualquer função para converter de uma string para um int, float ou double. Isso ajudará, mas não fará o trabalho todo.
+#Nesse esse excercicio eh necessario saber como e para que funciona o <static_cast>
 
 | |Escreva uma clase scalarConvert que tera apenas 1 metodo estatico "convert" que recebe como parametro uma representacao em string de um literal c++ em sua forma mais simples e exibira seu nome nos seguintes tipos escalares
     | |char

@@ -18,18 +18,8 @@ void ScalarConvert::convert()
 
 
     _d = std::strtod(_input.c_str(), end);
-    for (size_t i = 0; end[0][i]; i++)
-    {
-        if (end[0][i] != 'f' && end[0][i] >= 32 && end[0][i] <= 126)
-        {
-            std::cout << "char: impossible" << std::endl;
-            std::cout << "int: impossible" << std::endl;
-            std::cout << "float: impossible" << std::endl;
-            std::cout << "double: impossible" << std::endl;
-            delete end;
-            return;
-        }
-    }
+    std::cout << "double: " << _d << std::endl;
+    std::cout << "char: " << *end << std::endl;
     _c = static_cast<unsigned char>(_d);
     _b = static_cast<int>(_d);
     _i = static_cast<int>(_d);

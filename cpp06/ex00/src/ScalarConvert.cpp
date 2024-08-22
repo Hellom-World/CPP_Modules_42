@@ -14,62 +14,32 @@ ScalarConvert::~ScalarConvert()
 
 void ScalarConvert::convert()
 {
-    if (_input.length() == 1 && !std::isdigit(_input[0]))
+    char **end = new char*;
+
+
+    _d = std::strtod(_input.c_str(), end);
+    for (size_t i = 0; end[0][i]; i++)
     {
-        _b = static_cast<int>(_input[0]);
-        _c = static_cast<char>(_b);
-        _i = static_cast<int>(_b);
-        _f = static_cast<float>(_b);
-        _d = static_cast<double>(_b);
-    }
-    else if (_input == "nan" || _input == "+inf" || _input == "-inf" || _input == "inf")
-    {
-        if (_input == "nan")
+        if (end[0][i] != 'f' && end[0][i] >= 32 && end[0][i] <= 126)
         {
-            _b = 0;
-            _c = 0;
-            _i = 0;
-            _f = std::numeric_limits<float>::quiet_NaN();
-            _d = std::numeric_limits<double>::quiet_NaN();
-        }
-        else if (_input == "+inf" || _input == "inf")
-        {
-            _b = 0;
-            _c = 0;
-            _i = 0;
-            _f = std::numeric_limits<float>::infinity();
-            _d = std::numeric_limits<double>::infinity();
-        }
-        else if (_input == "-inf")
-        {
-            _b = 0;
-            _c = 0;
-            _i = 0;
-            _f = -std::numeric_limits<float>::infinity();
-            _d = -std::numeric_limits<double>::infinity();
+            std::cout << "char: impossible" << std::endl;
+            std::cout << "int: impossible" << std::endl;
+            std::cout << "float: impossible" << std::endl;
+            std::cout << "double: impossible" << std::endl;
+            delete end;
+            return;
         }
     }
-    else if (_input.length() > 1 && _input[0] == '-' && std::isdigit(_input[1]))
-    {
-        _b = std::atoi(_input.c_str());
-        _c = static_cast<unsigned char>(_b);
-        _i = static_cast<int>(_b);
-        _f = std::atof(_input.c_str());
-        std::istringstream(_input) >> _d;
-    }
-    else if (std::isdigit(_input[0]))
-    {
-        _b = std::atoi(_input.c_str()); // atoi converte uma string para um inteiro
-        _c = static_cast<char>(_b); // static_cast converte um tipo de dado para outro
-        _i = static_cast<int>(_b); // static_cast converte um tipo de dado para outro
-        _f = std::atof(_input.c_str()); // atof converte uma string para um float
-        std::istringstream(_input) >> _d; // istringstream converte uma string para um double
-    }
+    _c = static_cast<unsigned char>(_d);
+    _b = static_cast<int>(_d);
+    _i = static_cast<int>(_d);
+    _f = static_cast<float>(_d);
 
     printChar();
     printInt();
     printFloat();
     printDouble();
+    delete end;
 }
 
 void ScalarConvert::printChar()
@@ -95,6 +65,8 @@ void ScalarConvert::printChar()
 void ScalarConvert::printInt()
 {
     try {
+        if (_i < -2147483647 || _i > 2147483647)
+            throw ScalarConvert::ImpossibleException();
         std::cout << "int: " << _i << std::endl;
     }
     catch (std::exception &e)

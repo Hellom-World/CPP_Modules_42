@@ -1,5 +1,5 @@
 #include "../include/ScalarConvert.hpp"
-#include <string>
+#include <cstring>
 #include <sstream>
 #include <limits>
 
@@ -19,12 +19,33 @@ void ScalarConvert::convert()
 
     _d = std::strtod(_input.c_str(), end);
     std::cout << "double: " << _d << std::endl;
-    std::cout << "char: " << *end << std::endl;
+    std::cout << "input: " << _input << std::endl;
+    std::cout << "end: " << *end << std::endl;
+
+    if (*end[0] != '\0')
+    {
+        if ((*end[0] > 32 && *end[0] < 127))
+        {
+            if (*end[0] != 'f')
+            {
+                std::cout << "Error: invalid input" << std::endl;
+                delete end;
+                return;
+            }
+            else if (*end[0] == 'f' && strlen(*end) != 1)
+            {
+                std::cout << "Error: invalid input" << std::endl;
+                delete end;
+                return;
+            }
+        }
+    }
+
+    std::cout << "_d: " << _d << std::endl;
     _c = static_cast<unsigned char>(_d);
     _b = static_cast<int>(_d);
     _i = static_cast<int>(_d);
     _f = static_cast<float>(_d);
-
     printChar();
     printInt();
     printFloat();
@@ -40,7 +61,7 @@ void ScalarConvert::printChar()
             throw ScalarConvert::ImpossibleException();
         if (_b < 32 || _b > 126)
             throw ScalarConvert::NonDisplayableException();
-        std::cout << "char: '" << static_cast<char>(_b) << "'" << std::endl;
+        std::cout << "char: '" << static_cast<unsigned char>(_b) << "'" << std::endl;
     }
     catch (ScalarConvert::ImpossibleException &e)
     {

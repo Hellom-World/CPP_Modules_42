@@ -5,71 +5,76 @@
 
 ScalarConvert::ScalarConvert(std::string input) : _input(input)
 {
+    char **end = new char*;
+    _d = std::strtod(input.c_str(), end);
 
+    std::cout << "input: " << input << std::endl;
+    std::cout << "end: " << *end << std::endl;
+    std::cout << "input size: " << input.size() << std::endl;
+    std::cout << "_d: " << _d << std::endl;
+
+    if ((strlen(*end) != 0))
+    {
+        if (strlen(*end) == 1 && **end != 'f' && _d == 0)
+        {
+            _c = **end;
+            _i = static_cast<int>(_c);
+            _f = static_cast<float>(_c);
+            delete end;
+            return;
+        }
+        if (strlen(*end) == 1 && **end == 'f')
+        {
+            _c = static_cast<unsigned char>(_d);
+            _i = static_cast<int>(_d);
+            _f = static_cast<float>(_d);
+            delete end;
+            return;
+        }
+        delete end;
+        throw std::exception();
+    }
+    _c = static_cast<unsigned char>(_d);
+    _i = static_cast<int>(_d);
+    _f = static_cast<float>(_d);
+
+    delete end;
 }
 
 ScalarConvert::~ScalarConvert()
 {
 }
 
-void ScalarConvert::convert()
+void ScalarConvert::convert(std::string input)
 {
-    char **end = new char*;
-
-
-    _d = std::strtod(_input.c_str(), end);
-    std::cout << "double: " << _d << std::endl;
-    std::cout << "input: " << _input << std::endl;
-    std::cout << "end: " << *end << std::endl;
-
-    if (*end[0] != '\0')
+    //double _d;
+    try {
+        ScalarConvert sc(input);
+        sc.printChar();
+        sc.printInt();
+        sc.printFloat();
+        sc.printDouble();
+    }
+    catch (std::exception &e)
     {
-        if ((*end[0] > 32 && *end[0] < 127))
-        {
-            if (*end[0] != 'f')
-            {
-                std::cout << "Error: invalid input" << std::endl;
-                delete end;
-                return;
-            }
-            else if (*end[0] == 'f' && strlen(*end) != 1)
-            {
-                std::cout << "Error: invalid input" << std::endl;
-                delete end;
-                return;
-            }
-        }
+        std::cout << "Error: invalid input" << std::endl;
+        return;
     }
 
-    std::cout << "_d: " << _d << std::endl;
-    _c = static_cast<unsigned char>(_d);
-    _b = static_cast<int>(_d);
-    _i = static_cast<int>(_d);
-    _f = static_cast<float>(_d);
-    printChar();
-    printInt();
-    printFloat();
-    printDouble();
-    delete end;
 }
 
 void ScalarConvert::printChar()
-{
-    try
-    {
-        if (_b < 0 || _b > 255)
-            throw ScalarConvert::ImpossibleException();
-        if (_b < 32 || _b > 126)
+{  
+    std::cout << "char: ";
+    try {
+        if (_c < 32 || _c > 126)
             throw ScalarConvert::NonDisplayableException();
-        std::cout << "char: '" << static_cast<unsigned char>(_b) << "'" << std::endl;
+        std::cout << "'" << _c << "'" << std::endl;
     }
-    catch (ScalarConvert::ImpossibleException &e)
+    catch (std::exception &e)
     {
-        std::cout << "char: impossible" << std::endl;
-    }
-    catch (ScalarConvert::NonDisplayableException &e)
-    {
-        std::cout << "char: Non displayable" << std::endl;
+        std::cout << "Non displayable" << std::endl;
+        return;
     }
 }
 
@@ -126,11 +131,10 @@ ScalarConvert &ScalarConvert::operator=(ScalarConvert const &rhs)
     if (this != &rhs)
     {
         _input = rhs._input;
-        _b = rhs._b;
         _c = rhs._c;
         _i = rhs._i;
         _f = rhs._f;
-        _d = rhs._d;
+        _d = rhs._d;    
     }
     return *this;
 }

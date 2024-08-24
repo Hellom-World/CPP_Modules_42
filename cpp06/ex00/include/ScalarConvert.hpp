@@ -9,19 +9,18 @@ class ScalarConvert
 private:
     std::string _input;
     ScalarConvert();
+    ScalarConvert(std::string input);
     ScalarConvert(ScalarConvert const &src);
     ScalarConvert &operator=(ScalarConvert const &rhs);
 
-    int _b;
     unsigned char _c;
     int _i;
     float _f;
     double _d;
 
 public:
-    ScalarConvert(std::string input);
     ~ScalarConvert();
-    void convert();
+    static void convert(std::string input);
     void printChar();
     void printInt();
     void printFloat();

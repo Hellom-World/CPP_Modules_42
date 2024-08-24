@@ -13,7 +13,7 @@ private:
     ScalarConvert(ScalarConvert const &src);
     ScalarConvert &operator=(ScalarConvert const &rhs);
 
-    unsigned char _c;
+    char _c;
     int _i;
     float _f;
     double _d;

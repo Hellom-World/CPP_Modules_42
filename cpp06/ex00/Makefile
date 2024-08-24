@@ -1,4 +1,4 @@
-NAME = Burocracy
+NAME = convert
 
 SRCS = src/main.cpp src/ScalarConvert.cpp
 CXX = c++

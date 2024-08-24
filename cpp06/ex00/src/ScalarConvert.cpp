@@ -1,40 +1,51 @@
 #include "../include/ScalarConvert.hpp"
 #include <cstring>
 #include <sstream>
-#include <limits>
 
 ScalarConvert::ScalarConvert(std::string input) : _input(input)
 {
     char **end = new char*;
     _d = std::strtod(input.c_str(), end);
 
-    std::cout << "input: " << input << std::endl;
+    /*std::cout << "input: " << input << std::endl;
     std::cout << "end: " << *end << std::endl;
     std::cout << "input size: " << input.size() << std::endl;
-    std::cout << "_d: " << _d << std::endl;
+    std::cout << "_c: " << strlen(*end) << std::endl;
+    std::cout << "_d: " << _d << std::endl;*/
 
     if ((strlen(*end) != 0))
     {
         if (strlen(*end) == 1 && **end != 'f' && _d == 0)
         {
-            _c = **end;
+            _c = static_cast<char>(**end);
             _i = static_cast<int>(_c);
-            _f = static_cast<float>(_c);
+            _f = static_cast<float>(_c);    
             delete end;
             return;
         }
         if (strlen(*end) == 1 && **end == 'f')
         {
-            _c = static_cast<unsigned char>(_d);
+            if (_input.size() == 1)
+            {
+                _i = static_cast<int>(_input[0]);
+                _d = static_cast<double>(_i); 
+                _c = _input[0];
+                _f = static_cast<float>(_d);
+                delete end;
+                return;
+            }
+            _c = static_cast<char>(_d);
             _i = static_cast<int>(_d);
             _f = static_cast<float>(_d);
             delete end;
             return;
         }
+        //if ((strlen(*end) == 2))
+
         delete end;
         throw std::exception();
     }
-    _c = static_cast<unsigned char>(_d);
+    _c = static_cast<char>(_d);
     _i = static_cast<int>(_d);
     _f = static_cast<float>(_d);
 
@@ -67,13 +78,16 @@ void ScalarConvert::printChar()
 {  
     std::cout << "char: ";
     try {
-        if (_c < 32 || _c > 126)
+        if ((_c >= 0 && _c < 32) || _c == 127)
             throw ScalarConvert::NonDisplayableException();
-        std::cout << "'" << _c << "'" << std::endl;
+        else if (_c >= 32 && _c <= 126)
+            std::cout << "'" << _c << "'" << std::endl;
+        else
+            throw ScalarConvert::ImpossibleException();
     }
     catch (std::exception &e)
     {
-        std::cout << "Non displayable" << std::endl;
+        std::cout << "char: " << e.what() << std::endl;
         return;
     }
 }
@@ -87,7 +101,7 @@ void ScalarConvert::printInt()
     }
     catch (std::exception &e)
     {
-        std::cout << "int: impossible" << std::endl;
+        std::cout << "int: " << e.what() << std::endl;
         return;
     }
 }
@@ -97,8 +111,8 @@ void ScalarConvert::printFloat()
     try {
         std::cout << "float: " << _f;
         if (_f - _i == 0)
-            std::cout << ".0"; // É preciso afinar a precisão
-        std::cout << "f" << std::endl; // É preciso afinar a precisão
+            std::cout << ".0";
+        std::cout << "f" << std::endl;
     }
     catch (std::exception &e)
     {
@@ -109,10 +123,10 @@ void ScalarConvert::printFloat()
 
 void ScalarConvert::printDouble()
 {
-    std::cout.precision(10); // Define a precisão de saída
+    std::cout.precision(10);
     std::cout << "double: " << _d;
     if (_d - _i == 0)
-        std::cout << ".0"; // É preciso afinar a precisão
+        std::cout << ".0";
     std::cout << std::endl;
 }
 

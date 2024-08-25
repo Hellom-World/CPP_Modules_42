@@ -24,3 +24,5 @@ Você também deve lidar com esses pseudo-literais (você sabe, por diversão): 
 |x|Converte-lo de string para tipo real
 |x|Em seguida converter ele para os outro 3 tipos
 |x|Por fim, exiba os resultados
+
+| |Analisar criterios de avalaicao e reparar possiveis erros

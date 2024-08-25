@@ -1,0 +1,17 @@
+Identify real type (Identificacao de tipo real)
+
+### Funções proibidas: std::typeinfo ###
+
+| |Escrever um programa que detecta a real classe do objeto apontado por um ponteiro base.
+| |Este programa deverá exibir uma das três saídas a seguir, dependendo da classe: "A", "B" ou "C".
+| |Para este exercício, você deve declarar três classes vazias A, B e C. 
+    | |A herança múltipla não é permitida. Uma classe D deve herdar de uma das classes A, B ou C.
+| |Você deve implementar uma função identify(Base* p)
+    | |Ela exibe o tipo real da instância apontada por p: "A", "B" ou "C".
+| |Escreva outra função identify(Base& p)
+    | |Ela exibe o tipo real da instância apontada por p sem usar ponteiros. 
+    | |Não é permitido usar exceções.
+
+| |Escreva um programa para testar se sua classe funciona como o esperado
+
+| |Analisar criterios de avalaicao e reparar possiveis erros

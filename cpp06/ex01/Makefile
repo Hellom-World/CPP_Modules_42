@@ -1,6 +1,6 @@
-NAME = convert
+NAME = serialize
 
-SRCS = src/main.cpp src/ScalarConvert.cpp
+SRCS = src/main.cpp src/Serialize.cpp
 CXX = c++
 
 

@@ -1,19 +1,19 @@
 Serializer (Serializaçao)
 
 Tarefas:
-| |Implementar uma classe Serializer
-    | |Ela nao pode ser instaciada pelo usuario de forma alguma.~
-    | |Contem os seguintes metodos estaticos:
-        | |uintptr_t serialize(Data* ptr);
+|x|Implementar uma classe Serializer
+    |x|Ela nao pode ser instaciada pelo usuario de forma alguma.~
+    |x|Contem os seguintes metodos estaticos:
+        |x|uintptr_t serialize(Data* ptr);
             *Converte um ponteiro para o tipo inteiro sem sinal uintptr_t.
-        | |Data* deserialize(uintptr_t raw);
+        |x|Data* deserialize(uintptr_t raw);
             *Converte um parâmetro inteiro sem sinal em um ponteiro para Data.
 
-| |Criar um estrutura Data nao vazia(ou seja, tenha membros dentro dela).
-| |Use serialize() no objeto Data e passe seu valor de retorno para deserialize().
-    | |Garantir que o valor de retorno do deserialize() seja igual ao ponteiro original.
+|x|Criar um estrutura Data nao vazia(ou seja, tenha membros dentro dela).
+|x|Use serialize() no objeto Data e passe seu valor de retorno para deserialize().
+    |x|Garantir que o valor de retorno do deserialize() seja igual ao ponteiro original.
 
-| |Escreva um programa para testar se sua classe funciona como o esperado.
-| |Nao esquecer de entregar os arquivos da estrutura Data.
+|x|Escreva um programa para testar se sua classe funciona como o esperado.
+|x|Nao esquecer de entregar os arquivos da estrutura Data.
 
 | |Analisar criterios de avalaicao e reparar possiveis erros

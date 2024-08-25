@@ -6,6 +6,7 @@ int main() {
     Base *b = new B();
     Base *c = new C();
     Base *d = new Base();
+    Base *e = NULL;
     std::cout << std::endl;
 
     std::cout << "identify(Base *p)" << std::endl;
@@ -17,6 +18,8 @@ int main() {
     identify(c);
     std::cout << "Type from ptr: ";
     identify(d);
+    std::cout << "Type from ptr: ";
+    identify(e);
     std::cout << std::endl;
 
     std::cout << "identify(Base &p)" << std::endl;
@@ -28,6 +31,8 @@ int main() {
     identify(*c);
     std::cout << "Type from ref: ";
     identify(*d);
+    std::cout << "Type from ref: ";
+    identify(*e);
 
     std::cout << std::endl;
     delete a;

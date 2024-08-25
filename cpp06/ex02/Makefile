@@ -1,6 +1,6 @@
-NAME = convert
+NAME = RealType
 
-SRCS = src/main.cpp src/ScalarConvert.cpp
+SRCS = src/main.cpp src/Base.cpp
 CXX = c++
 
 

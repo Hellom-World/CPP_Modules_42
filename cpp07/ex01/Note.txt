@@ -1,0 +1,8 @@
+Iter
+
+Tarefas:
+| |Implemente um tamplete de funcao 'iter' que recebe 3 parametros e nao retorna nada
+    | |O primeiro parametro eh o endereco de um array
+    | |O segundo eh o comprimento do array
+    | |O terceiro eh uma funcao que sera chamada em cada elemento do array
+| |O tamplete da funcao 'Iter' deve funcionar com qualquer tipo de array

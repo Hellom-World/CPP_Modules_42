@@ -24,3 +24,15 @@ Tarefas:
     | |Essa função membro deve retornar o número de elementos no array. Ela não deve modificar a instância atual.
 
 | |Como de costume, garanta que tudo funcione como esperado e entregue um arquivo main.cpp que contenha seus testes.
+
+Nesse caso usaremos templates de classe que consiste em permitir que voce crie uma classe com atributos genericos que podem armazenar e manipular dados de diferentes tipos. Exemplo:
+
+template <typename T>
+class Caixa {
+private:
+    T valor;
+public:
+    Caixa(T v) : valor(v) {}
+    T getValor() { return valor; }
+};
+Aqui, a classe Caixa pode armazenar qualquer tipo de dado, e o tipo é definido quando a classe é instanciada.

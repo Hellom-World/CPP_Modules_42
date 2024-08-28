@@ -6,3 +6,11 @@ Tarefas:
     | |O segundo eh o comprimento do array
     | |O terceiro eh uma funcao que sera chamada em cada elemento do array
 | |O tamplete da funcao 'Iter' deve funcionar com qualquer tipo de array
+
+
+Nesse caso voce vai trabalhar com o template tipo multi, que consiste em receber mais de um tipo como argumento e isso serve para quando precisamos de tratar mais de um tipo de dado em uma funcao. Exemplo:
+
+template <typename T, typename U>
+T add(T a, U b) {
+    return a + b;
+}

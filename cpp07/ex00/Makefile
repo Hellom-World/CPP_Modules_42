@@ -1,6 +1,6 @@
-NAME = convert
+NAME = Temp
 
-SRCS = src/main.cpp src/ScalarConvert.cpp
+SRCS = src/main.cpp
 CXX = c++
 
 

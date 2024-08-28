@@ -1,53 +1,30 @@
-#include <iostream>
 #include "../include/Array.hpp"
 
-#define MAX_VAL 750
-int main(int, char**)
+int    main()
 {
-    Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
-    srand(time(NULL));
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        const int value = rand();
-        numbers[i] = value;
-        mirror[i] = value;
-    }
-    //SCOPE
-    {
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);
-    }
+    Array<int> a(5);
+    for (unsigned int i = 0; i < a.size(); i++)
+        std::cout << a[i] << std::endl;
+    for (unsigned int i = 0; i < a.size(); i++)
+        a[i] = i;
+    std::cout << "----------------" << std::endl;
+    for (unsigned int i = 0; i < a.size(); i++)
+        std::cout << a[i] << std::endl;
 
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        if (mirror[i] != numbers[i])
-        {
-            std::cerr << "didn't save the same value!!" << std::endl;
-            return 1;
-        }
-    }
-    try
-    {
-        numbers[-2] = 0;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    try
-    {
-        numbers[MAX_VAL] = 0;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    std::cout << "Array<int> b = a;" << std::endl;
+    Array<int> b = a;
+    std::cout << "-----Print Array b-----------" << std::endl;
+    for (unsigned int i = 0; i < b.size(); i++)
+        std::cout << b[i] << std::endl;
+    std::cout << "<Add outher values to Array b>" << std::endl;
+    for (unsigned int i = 0; i < b.size(); i++)
+        b[i] = i + 42;
+    std::cout << "-----Print Array b-----------" << std::endl;
+    for (unsigned int i = 0; i < b.size(); i++)
+        std::cout << b[i] << std::endl;
+    std::cout << "------print Array a----------" << std::endl;
+    for (unsigned int i = 0; i < a.size(); i++)
+        std::cout << a[i] << std::endl;
 
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        numbers[i] = rand();
-    }
-    delete [] mirror;//
     return 0;
 }

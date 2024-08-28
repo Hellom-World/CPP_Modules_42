@@ -1,6 +1,6 @@
-NAME = RealType
+NAME = Temp
 
-SRCS = src/main.cpp src/Base.cpp
+SRCS = src/main.cpp
 CXX = c++
 
 

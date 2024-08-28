@@ -18,12 +18,12 @@ T min(T a, T b)
 }
 
 template <typename T>
-T swap(T &a, T &b)
+//swap sem return
+void swap(T &a, T &b)
 {
-    T tmp = a;
+    T temp = a;
     a = b;
-    b = tmp;
-    return a;
+    b = temp;
 }
 
 #endif

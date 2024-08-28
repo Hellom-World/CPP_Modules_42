@@ -21,3 +21,30 @@ T max(T a, T b) {
 }
 Nesse exemplo, a função max retorna o maior entre a e b, mas o tipo de dado de a e b é genérico, ou seja, a função pode ser chamada com inteiros, floats, strings, etc.
 
+
+-------------------------------------------------------------------------------------------------
+Nota interessante
+
+#include <iostream>
+#include <algorithm>  // Para std::swap
+
+// Função personalizada de swap
+void swap(int& a, int& b) {
+    std::cout << "Custom swap called!" << std::endl;
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+int main() {
+    int x = 1, y = 2;
+
+    // Chama a função de swap personalizada
+    swap(x, y);  // Saída: Custom swap called!
+
+    // Chama std::swap do escopo global (ignorando a personalizada)
+    ::swap(x, y);  // Erro: std::swap não foi encontrado (se não houver um using std::swap)
+
+    // Chama std::swap usando o namespace std explicitamente
+    std::swap(x, y);  // Funciona: std::swap da biblioteca padrão
+}

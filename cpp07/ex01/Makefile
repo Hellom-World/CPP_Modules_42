@@ -1,6 +1,6 @@
-NAME = serialize
+NAME = Temp
 
-SRCS = src/main.cpp src/Serialize.cpp
+SRCS = src/main.cpp
 CXX = c++
 
 

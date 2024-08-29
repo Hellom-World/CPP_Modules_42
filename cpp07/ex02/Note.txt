@@ -1,29 +1,29 @@
 Array
 
 Tarefas:
-| |Desenvolva um tamplete de class 'Array' que contenha elementos do tipo 'T' e implemente o seguinte:
-    | |Contrutor sem parametros (Cria um array vazio).
-    | |Construtor com 'unsigned int n' como parametro
-        | |Criar um array de 'n' elementos inicializados por padrao.
-    | |Construtor de copia e operador de atribuicao
-        | |Modificar o 'array' original ou seu copia apos a copia nao deve afetar o outro 'array'
+|x|Desenvolva um tamplete de class 'Array' que contenha elementos do tipo 'T' e implemente o seguinte:
+    |x|Contrutor sem parametros (Cria um array vazio).
+    |x|Construtor com 'unsigned int n' como parametro
+        |x|Criar um array de 'n' elementos inicializados por padrao.
+    |x|Construtor de copia e operador de atribuicao
+        |x|Modificar o 'array' original ou seu copia apos a copia nao deve afetar o outro 'array'
 
 | |Dica: Tente compilar int* a = new int(); e depois exibir *a.
 
-| |Uso obrigatório de new[]:
-    | |Você DEVE usar o operador new[] para alocar memória.
-    | |A alocação preventiva (alocar memória com antecedência) é proibida.
-    | |Seu programa nunca deve acessar memória não alocada.
+|x|Uso obrigatório de new[]:
+    |x|Você DEVE usar o operador new[] para alocar memória.
+    |x|A alocação preventiva (alocar memória com antecedência) é proibida.
+    |x|Seu programa nunca deve acessar memória não alocada.
 
-| |Acesso aos elementos:
-    | |Os elementos podem ser acessados através do operador subscrito ([]).
+|x|Acesso aos elementos:
+    |x|Os elementos podem ser acessados através do operador subscrito ([]).
 
-| |Exceção para índices fora do intervalo:
-    | |Ao acessar um elemento com o operador [], se o índice estiver fora dos limites, deve ser lançada uma std::exception.
-| |Função membro size():
-    | |Essa função membro deve retornar o número de elementos no array. Ela não deve modificar a instância atual.
+|x|Exceção para índices fora do intervalo:
+    |x|Ao acessar um elemento com o operador [], se o índice estiver fora dos limites, deve ser lançada uma std::exception.
+|x|Função membro size():
+    |x|Essa função membro deve retornar o número de elementos no array. Ela não deve modificar a instância atual.
 
-| |Como de costume, garanta que tudo funcione como esperado e entregue um arquivo main.cpp que contenha seus testes.
+|x|Como de costume, garanta que tudo funcione como esperado e entregue um arquivo main.cpp que contenha seus testes.
 
 Nesse caso usaremos templates de classe que consiste em permitir que voce crie uma classe com atributos genericos que podem armazenar e manipular dados de diferentes tipos. Exemplo:
 

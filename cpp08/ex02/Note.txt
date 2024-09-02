@@ -1,0 +1,15 @@
+REGRAS GERAIS DO MODULO
+    1.Nesse modulo voce pode usar STL (Standart Template Library). Isso inclui Templates como "vector", "list" e "map" e algoritmos definidos no cabecalho "<algorithm>"
+    ## UTILIZAR SEMPRE QUE POSSIVEL, POIS É O OBJETO DESSE ESTUDO.
+
+Requisitos do exercicio 02 - ABOMINACAO MUTANTE
+
+    | |Implemente a classe MutantStack, baseada na clase std::stack
+        #Alem de oferecer todas as funcoes membros da std::stack, tera iteradores para torna-la iteravel
+
+Testes sugeridos pelo programador com base na analise do subjects
+
+    | | Mostrar o funcionamento de cada funcao membro de um objeto criado a partir da classe original em comparacao a cada funcao membro de um objeto criado a partir da classe filha "MutantStack"
+    | | Mostrar funcionamento dos iteradores de uma classe std::stack e uma classe MutantStack
+
+

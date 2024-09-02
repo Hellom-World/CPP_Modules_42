@@ -1,0 +1,10 @@
+REGRAS GERAIS DO MODULO
+    1.Nesse modulo voce pode usar STL (Standart Template Library). Isso inclui Templates como "vector", "list" e "map" e algoritmos definidos no cabecalho "<algorithm>"
+    ## UTILIZAR SEMPRE QUE POSSIVEL, POIS É O OBJETO DESSE ESTUDO.
+
+Requisitos do exercicio 00 - EASYFIND
+
+    | |Escreva uma função template easyfind que aceite um tipo T.
+    | |Ela deve procurar a primeira ocorrência de um inteiro em um contêiner de inteiros.
+    | |Caso a ocorrência não seja encontrada, você pode lançar uma exceção
+        | |OU retornar um valor de erro.

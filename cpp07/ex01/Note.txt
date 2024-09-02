@@ -1,11 +1,11 @@
 Iter
 
 Tarefas:
-| |Implemente um tamplete de funcao 'iter' que recebe 3 parametros e nao retorna nada
-    | |O primeiro parametro eh o endereco de um array
-    | |O segundo eh o comprimento do array
-    | |O terceiro eh uma funcao que sera chamada em cada elemento do array
-| |O tamplete da funcao 'Iter' deve funcionar com qualquer tipo de array
+|x|Implemente um tamplete de funcao 'iter' que recebe 3 parametros e nao retorna nada
+    |x|O primeiro parametro eh o endereco de um array
+    |x|O segundo eh o comprimento do array
+    |x|O terceiro eh uma funcao que sera chamada em cada elemento do array
+|x|O tamplete da funcao 'Iter' deve funcionar com qualquer tipo de array
 
 
 Nesse caso voce vai trabalhar com o template tipo multi, que consiste em receber mais de um tipo como argumento e isso serve para quando precisamos de tratar mais de um tipo de dado em uma funcao. Exemplo:

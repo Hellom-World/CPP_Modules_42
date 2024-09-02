@@ -1,16 +1,16 @@
 Start with a few functions - Começe com algumas funcoes
 
 Tarefas:
-| |Implementar os seguintes templates de funcoes:
-    | |swap - Troca os valores de 2 argumentos fornecidos e nao retorna nada
-    | |min - Compara os 2 valores passados como argumento e retorna o menor.
+|x|Implementar os seguintes templates de funcoes:
+    |x|swap - Troca os valores de 2 argumentos fornecidos e nao retorna nada
+    |x|min - Compara os 2 valores passados como argumento e retorna o menor.
         Se ambos forem iguais, retorne o segundo.
-    | |max - Compara os 2 valores passados como argumento e retorna o maior.
+    |x|max - Compara os 2 valores passados como argumento e retorna o maior.
         Se ambos forem iguais, retorne o segundo
-| |Garantir que essas funcoes possam ser chamadas com qualquer tipo de argumento
-    | |Os argumentos passados devem ser do mesmo tipo
-        | |Os tipos devem suportar operadores de comparacao
-| |Os templates devem ser definidos nos arquivos de cabecalho
+|x|Garantir que essas funcoes possam ser chamadas com qualquer tipo de argumento
+    |x|Os argumentos passados devem ser do mesmo tipo
+        |x|Os tipos devem suportar operadores de comparacao
+|x|Os templates devem ser definidos nos arquivos de cabecalho
 
 
 Obs: Aqui usaremos templates de funcao que consiste em permitir que voce crie uma funcao generica que funcione com diferentes tipos de dados, um exemplo simple:

@@ -4,7 +4,7 @@ REGRAS GERAIS DO MODULO
 
 Requisitos do exercicio 00 - EASYFIND
 
-    | |Escreva uma função template easyfind que aceite um tipo T.
-    | |Ela deve procurar a primeira ocorrência de um inteiro em um contêiner de inteiros.
-    | |Caso a ocorrência não seja encontrada, você pode lançar uma exceção
-        | |OU retornar um valor de erro.
+    |X|Escreva uma função template easyfind que aceite um tipo T.
+    |X|Ela deve procurar a primeira ocorrência de um inteiro em um contêiner de inteiros.
+    |X|Caso a ocorrência não seja encontrada, você pode lançar uma exceção
+        |X|OU retornar um valor de erro.

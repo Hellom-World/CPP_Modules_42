@@ -13,6 +13,7 @@ int main()
     {
         v.push_back(i);
         l.push_back(i);
+        m.insert(std::pair<int, int>(i, 10 * i));
     }
 
     try
@@ -20,12 +21,11 @@ int main()
 
         std::cout << *easyfind(v, 5) << std::endl;
         std::cout << *easyfind(l, 5) << std::endl;
-        std::cout << *easyfind(m, 5) << std::endl;
+        std::cout << "m[first] = Second \t- Onde First: " << easyfind(m, 5)->first << std::endl;
+        std::cout << "m[first] = Second \t- Onde Second: " << easyfind(m, 5)->second << std::endl;
     }
     catch (std::exception &e)
     {
         std::cout << "Not found" << std::endl;
     }
 }
-
-// Necessario corrigir retorno do map, pois o retorno do easyfind para map esta retornando um pair, e nao um iterator

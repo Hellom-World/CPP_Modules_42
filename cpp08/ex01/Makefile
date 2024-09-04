@@ -1,6 +1,6 @@
-NAME = Temp
+NAME = Span
 
-SRCS = src/main.cpp
+SRCS = src/main.cpp src/Span.cpp
 CXX = c++
 
 

@@ -11,7 +11,7 @@ O objetivo principal da STL é economizar tempo e aumentar a eficiencia, fornece
 ### Recipientes
 
 Conteiners sao as estruturas de dados usadas para armazenamento e manipulacao de dados em c++. Eles sao classificados em quatro tipos:
-	
+
 	1. Sequencia containers
 	2. Associative containers
 	3. Unordered associative containers
@@ -55,7 +55,7 @@ Esses conteiners armazenam dados de forma nao ordenada usando tabelas hash. Exem
 ### Adpatadores de conteiners (Conteiners adaptors)
 
 Sao conteiners baseados em outros containers existentes. Exemplos incluem:
-	
+
 	std::stack - Uma estrutura de dados LIFO baseada em deque ou lista
 	std::stack<int> my_stack;
 
@@ -131,7 +131,7 @@ Uma lista é uma lista duplamente encadeada que permite que elementos sejam inse
 		std::list<int> lst = {1, 2, 3, 4, 5};
 
 		lst.push_back(6); // Add an element to the end
-		
+
 		std::cout << "List contains:";
 		for (int x : lst) {
 			std::cout << ' ' << x;
@@ -213,5 +213,99 @@ Existem diferentes tipos de iteradores que voce encontrara dependendo de seus ca
 
 # Algoritmos STL
 
-A 
+A Standart Template Library (STL) em C++ fornece uma colecao de algoritmos genericos que sao projetados para trabalhar com varias classes de conteiner. Esse algoritmos sao implementados como funcaoes e podem ser aplicados a diferentes estruturas de dados, como arrays, vetores, listas e outros. O arquivo de cabecalho primario para algoritmos é "algorithm".
 
+## Conceitos-chave
+
+A Classificacao se refere a organizar uma sequencia de elementos em uma ordem especifica. O STL fornece varios algoritmos de classificacao, como std::sort, std::stable_sort, e std::partial_sort.
+
+### std::sort (Sorting)
+std::sort é usado para classificar um intervalo de elementos (primeiro, ultimo) em ordem nao decrescente (por padrao). Voce tambem pode usar funcoes de comparacao personalizadas ou expressoes lambda para alterar a odem de classificacao
+
+### Exemplo:
+
+	#include <algorithm>
+	#include <vector>
+	#include <iostream>
+
+	int main() {
+		std::vector<int> nums = {10, 9, 8, 7, 6, 5};
+		std::sort(nums.begin(), nums.end());
+
+		for (int num : nums) {
+			std::cout << num << ' ';
+		}
+		// Output: 5 6 7 8 9 10
+	}
+
+## Procurando (Searching)
+Sorting se refere a descobrir se um elemento em particular esta presente dentro de um dado intervalo de elememtos. O STL fornece varios algoritmos de pesquisa, como std::find, std::binary_search, e std::find_if.
+
+### std::find
+std::find é usado para encontrar o iterador da primeira ocorrencia de um determiinado valor dentro do intervalo (primeiro, ultimo).
+
+### Exemplo
+
+	#include <algorithm>
+	#include <vector>
+	#include <iostream>
+
+	int main() {
+		std::vector<int> nums = {5, 6, 7, 8, 9, 10};
+		auto it = std::find(nums.begin(), nums.end(), 9);
+
+		if (it != nums.end()) {
+			std::cout << "Found 9 at position: " << (it - nums.begin());
+		} else {
+			std::cout << "9 not found";
+		}
+		// Output: Found 9 at position: 4
+	}
+
+## Modificando sequencias
+O STL tambem fornece algoritmos para modificar sequencias, como std::remoce, std::replace, e std::unique.
+
+### std::remove
+std::remove é usado para remover todas as instancias de um valor de um conteiner dentro do intervalo fornecido (primeiro, ultimo). ***Observe que a funcao nao redimensiona o conteiner apos remover elementos***
+
+### Exemplo:
+	#include <algorithm>
+	#include <vector>
+	#include <iostream>
+
+	int main() {
+		std::vector<int> nums = {5, 6, 7, 6, 8, 6, 9, 6, 10};
+		nums.erase(std::remove(nums.begin(), nums.end(), 6), nums.end());
+
+		for (int num : nums) {
+			std::cout << num << ' ';
+		}
+		// Output: 5 7 8 9 10
+	}
+No exemplo, a função erase do std::vector é usada para remover elementos de um intervalo do vetor. Para entender completamente como funciona, é importante destacar como std::remove e std::vector::erase interagem juntas.
+
+### Passo a passo:
+
+A função std::remove não remove os elementos do container diretamente. Em vez disso, ela "reorganiza" o vetor, movendo todos os elementos que não satisfazem a condição para o início do intervalo e "deixando" os elementos a serem removidos no final do vetor.
+
+O retorno de std::remove é um iterador que aponta para o novo "fim" do vetor, onde começam os elementos "invalidados" (aqueles que devem ser removidos).
+
+Logo,
+
+	std::remove(nums.begin(), nums.end(), 6);
+move todos os elementos diferentes de 6 para o início do vetor. O retorno desta função é um iterador que aponta para a posição logo após o último elemento válido. O vetor, após o std::remove, ficará assim:
+
+	{5, 7, 8, 9, 10, 6, 6, 6, 6}
+
+Note que o tamanho do vetor não foi alterado ainda. Apenas os elementos 6 foram movidos para o final.
+
+Após o std::remove, a função erase é chamada para realmente remover os elementos. O intervalo fornecido para erase começa no iterador retornado por std::remove (onde os elementos 6 começam a aparecer) e vai até o fim do vetor (nums.end()).
+
+	nums.erase(std::remove(nums.begin(), nums.end(), 6), nums.end());
+remove os elementos do intervalo especificado (no caso, todos os 6 que foram movidos para o final).
+
+O vetor final será:
+
+	{5, 7, 8, 9, 10}
+
+NOTA: Caso tenha algum exercicio nesse modulo que seja necessario usar data e tempo eu volto aqui para falar sobre o uso do mesmo.

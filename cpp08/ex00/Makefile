@@ -1,4 +1,4 @@
-NAME = Temp
+NAME = Easyfind
 
 SRCS = src/main.cpp
 CXX = c++

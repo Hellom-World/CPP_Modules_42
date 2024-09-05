@@ -13,3 +13,56 @@ Testes sugeridos pelo programador com base na analise do subjects
     | | Mostrar funcionamento dos iteradores de uma classe std::stack e uma classe MutantStack
 
 
+________________________________________________________________________________________________
+
+Resumo das Características e Métodos de std::stack
+
+Características:
+Adaptador de contêiner: std::stack é um adaptador que usa outro contêiner subjacente para fornecer sua funcionalidade de pilha (LIFO - Last In, First Out).
+Contêineres subjacentes: Pode ser construído com qualquer contêiner que suporte as operações básicas de pilha: std::deque (padrão), std::vector, ou std::list.
+Sem iteradores: Não fornece suporte para iterar sobre os elementos, já que sua função é restringir o acesso ao topo da pilha.
+
+Acesso limitado: Acesso permitido apenas ao elemento do topo da pilha.
+
+Métodos Principais:
+
+Construtores:
+    * std::stack() – Constrói uma pilha vazia.
+    * Pode ser construído com um contêiner predefinido ou outro contêiner subjacente.
+
+empty():
+    * Verifica se a pilha está vazia.
+    * Retorna: true se a pilha estiver vazia; caso contrário, false.
+    bool empty() const;
+
+size():
+    *Retorna o número de elementos na pilha.
+    size_t size() const;
+
+top():
+    *Acessa o elemento no topo da pilha.
+    *Versões const e não const estão disponíveis.
+    T& top();
+    const T& top() const;
+
+push():
+    * Insere um novo elemento no topo da pilha.
+    * Versões para passar o valor por cópia ou mover o valor.
+    void push(const T& value);
+    void push(T&& value);
+
+pop():
+    *Remove o elemento do topo da pilha (não retorna o valor).
+    void pop();
+
+emplace():
+    *Constrói e adiciona um novo elemento diretamente no topo da pilha.
+    template <class... Args>
+    void emplace(Args&&... args);
+
+Contêiner Subjacente:
+    *O contêiner subjacente padrão é o std::deque, mas pode ser configurado com std::vector ou std::list para necessidades específicas.
+
+Características Gerais:
+    *LIFO (Last In, First Out): O último elemento adicionado é o primeiro a ser removido.
+    *Operações O(1): Inserções e remoções no topo têm complexidade constante (O(1)).

@@ -4,10 +4,10 @@ REGRAS GERAIS DO MODULO
 
 Requisitos do exercicio 01 - SPAN
 
-    | |Desenvolva uma classe Span
-        | |Que possa armazenar ate 'N' inteiros
-    | |A classe Span tera as seguintes funcoes membros
-        | |addNumber(), para adicionar numeros
-        | |shortestSpan(), para calcular a menor distancia entre os numeros armazenados.
-        | |longestSpan(), para calcular a maior distancia entre aos numeros armazenados.
+    |X|Desenvolva uma classe Span
+        |X|Que possa armazenar ate 'N' inteiros
+    |X|A classe Span tera as seguintes funcoes membros
+        |X|addNumber(), para adicionar numeros
+        |X|shortestSpan(), para calcular a menor distancia entre os numeros armazenados.
+        |X|longestSpan(), para calcular a maior distancia entre aos numeros armazenados.
 

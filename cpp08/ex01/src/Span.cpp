@@ -24,6 +24,18 @@ void Span::addNumber(int n)
         throw std::exception();
 }
 
+void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+    // Checa se há espaço suficiente para adicionar os novos números
+    if (_v.size() + std::distance(begin, end) <= _n) {
+        _v.insert(_v.end(), begin, end);  // Insere o intervalo no final do vetor
+    } else {
+        // Lança uma exceção mais clara
+        throw std::out_of_range("Error: not enough space to add the numbers");
+    }
+}
+
+
 int Span::shortestSpan()
 {
     if (_v.size() < 2)
@@ -41,25 +53,36 @@ int Span::shortestSpan()
 
 int Span::longestSpan()
 {
-    if (_v.size() < 2)
+    //Para menor diferença entre os números em sequência
+    /*if (_v.size() < 2)
         throw std::exception();
     std::vector<int> v = _v;
     std::sort(v.begin(), v.end());
     int max = 0;
-    
+
     // Percorre o vetor e compara o valor atual com o próximo
     for (std::vector<int>::iterator it = v.begin(); it != v.end() - 1; ++it)
     {
         int diff = *(it + 1) - *it;  // Calcula a diferença entre o atual e o próximo
         if (diff > max)  // Se a diferença for maior que a anterior, atualiza
             max = diff;
-    }
+    }*/
+
+    //Para maior diferença entre o maior numero e o menor numero do vetor
+    if (_v.size() < 2)
+        throw std::exception();
+    int max = *std::max_element(_v.begin(), _v.end()) - *std::min_element(_v.begin(), _v.end());
     return max;
 }
 
 unsigned int Span::size() const
 {
     return _n;
+}
+
+std::vector<int> Span::getVector() const
+{
+    return _v;
 }
 
 void Span::printOriginalVector()

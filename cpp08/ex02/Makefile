@@ -1,4 +1,4 @@
-NAME = Temp
+NAME = MutantStack
 
 SRCS = src/main.cpp
 CXX = c++

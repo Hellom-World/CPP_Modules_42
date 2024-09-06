@@ -19,8 +19,12 @@ public:
     ~Span();
 
     void addNumber(int n);
+    void addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+
     int shortestSpan();
     int longestSpan();
+
+    std::vector<int> getVector() const;
     unsigned int size() const;
     void printOriginalVector();
     void printSortedVector();

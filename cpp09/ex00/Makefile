@@ -1,4 +1,4 @@
-NAME = Easyfind
+NAME = btc
 
 SRCS = src/main.cpp
 CXX = c++

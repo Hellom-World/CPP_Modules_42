@@ -1,4 +1,4 @@
-NAME = MutantStack
+NAME = PmergeMe
 
 SRCS = src/main.cpp
 CXX = c++

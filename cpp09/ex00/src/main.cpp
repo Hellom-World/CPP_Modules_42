@@ -38,6 +38,47 @@ void print_file(std::ifstream &file)
 
 }
 
+void    valid_date_format(std::string date)
+{
+    //verificar se a data está no formato yyyy-mm-dd
+    if (date.size() != 10)
+    {
+        throw std::invalid_argument("Error: invalid date format.");
+        return;
+    }
+    if (date[4] != '-' || date[7] != '-')
+    {
+        throw std::invalid_argument("Error: invalid date format.");
+        return;
+    }
+    for (unsigned int i = 0; i < date.size(); i++)
+    {
+        if (i == 4 || i == 7)
+            continue;
+        if (!isdigit(date[i]))
+        {
+            throw std::invalid_argument("Error: invalid date format.");
+            return;
+        }
+    }
+}
+
+void    valid_value(float value)
+{
+    //verificar se o valor é um número
+    if (value < 0)
+    {
+        throw std::invalid_argument("Error: invalid value.");
+        return;
+    }
+    //verifica se o valor nao passa do maximo float
+    if (value > 3.40282e+38)
+    {
+        throw std::invalid_argument("Error: invalid value.");
+        return;
+    }
+}
+
 int main (int argc, char **argv)
 {
     if (argc != 2)
@@ -74,10 +115,42 @@ int main (int argc, char **argv)
         data[date] = std::strtof(token.c_str(), NULL);
     }
 
-    //imprimir os dados do map
+    //validar valor das chaves
     for (std::map<std::string, float>::iterator it = data.begin(); it != data.end(); it++)
     {
-        std::cout << it->first << " - " << it->second << std::endl;
+        if (it->first == "date")
+            continue;
+        try
+        {
+            valid_date_format(it->first);
+        }
+        catch (std::invalid_argument &e)
+        {
+            std::cerr << e.what() << std::endl;
+            return 1;
+        }
     }
+    std::cout << "All dates are in the correct format." << std::endl;
+
+    //validar valor dos dados
+    for (std::map<std::string, float>::iterator it = data.begin(); it != data.end(); it++)
+    {
+        try
+        {
+            valid_value(it->second);
+        }
+        catch (std::invalid_argument &e)
+        {
+            std::cerr << e.what() << std::endl;
+            return 1;
+        }
+    }
+    std::cout << "All values are valid." << std::endl;
+
+    //imprimir os dados do map
+    /*for (std::map<std::string, float>::iterator it = data.begin(); it != data.end(); it++)
+    {
+        std::cout << it->first << " - " << it->second << std::endl;
+    }*/
 
 }

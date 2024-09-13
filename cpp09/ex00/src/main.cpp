@@ -4,9 +4,15 @@
 #include <fstream>
 #include <sstream>
 
-bool open_file(std::ifstream &file, const char *filename)
+bool open_file(std::ifstream &file, const char *filename, int flag)
 {
-    if (std::string(filename).find(".csv") == std::string::npos)
+    if (std::string(filename).find(".csv") == std::string::npos && flag == 0)
+    {
+        std::cerr << "Error: file is not a .csv file." << std::endl;
+        return false;
+    }
+
+    if (std::string(filename).find(".txt") == std::string::npos && flag == 1)
     {
         std::cerr << "Error: file is not a .txt file." << std::endl;
         return false;
@@ -35,20 +41,20 @@ void print_file(std::ifstream &file)
     std::cout << "-------------------" << std::endl;
 }
 
-void    valid_date_format(std::string date)
+bool    valid_date_format(std::string date)
 {
     if (date == "date")
-        return;
+        return true;
     //verificar se a data está no formato yyyy-mm-dd
     if (date.size() != 10)
     {
         std::cout << "Error: invalid date format." << std::endl;
-        return;
+        return false;
     }
     if (date[4] != '-' || date[7] != '-')
     {
         std::cout << "Error: invalid date format. 2 " << std::endl;
-        return;
+        return false;
     }
     for (unsigned int i = 0; i < date.size(); i++)
     {
@@ -58,27 +64,39 @@ void    valid_date_format(std::string date)
         {
             std::cout << date[i] << std::endl;
             std::cout << "Error: invalid date format. 3" << std::endl;
-            return;
+            return false;
         }
     }
-
-    std::cout << date << std::endl;
+    return true;
 }
 
-void    valid_value(float value)
+bool    valid_value(std::string value)
 {
+    char *end;
+    float number = std::strtof(value.c_str(), &end);
+
+    //verifica o valor da primeira string
+    if (value == " value")
+        return true;
+
     //verificar se o valor é um número
-    if (value < 0)
+    if (*end != '\0')
     {
         std::cout << "Error: invalid value." << std::endl;
-        return;
+        return false;
     }
-    //verifica se o valor nao passa do maximo float
-    if (value > 3.40282e+38)
+    if (number < 0)
     {
-        std::cout << "Error: invalid value." << std::endl;
-        return;
+        std::cout << "Error: not a positive number." << std::endl;
+        return false;
     }
+    //verifica se o valor nao passa 1000
+    if (number > 1000)
+    {
+        std::cout << "Error: too large a number." << std::endl;
+        return false;
+    }
+    return true;
 }
 
 void    make_data(const char *filename, std::map<std::string, float> &data)
@@ -89,7 +107,7 @@ void    make_data(const char *filename, std::map<std::string, float> &data)
 
    //fazer um map com a data e o valor do .csv
     std::ifstream file;
-    open_file(file, filename);
+    open_file(file, filename, 0);
     //print_file(file);
 
     //criar um map com a data e o valor
@@ -110,6 +128,44 @@ void    print_map(std::map<std::string, float> &data)
         std::cout << it->first << " => " << it->second << std::endl;
 }
 
+void    open_input_file(char **argv, std::ifstream &file)
+{
+    //Abrir o arquivo de entrada
+    if (!open_file(file, argv[1], 1))
+        return;
+
+}
+
+void    line_verify(std::string line, std::string date, std::string value, std::map<std::string, float> &data)
+{
+    //verificar se a linha está no formato date|value
+    if (line.find("|") == std::string::npos)
+    {
+        std::cout << "Error: bad input => " << line << std::endl;
+        return;
+    }
+    //verificar se a data está no formato yyyy-mm-dd
+    date = date.substr(0, date.size() - 1);
+    if (!valid_date_format(date))
+        return;
+    //verificar se o valor é um número
+    if (!valid_value(value))
+        return;
+
+    //verificar se a data está no map
+    if (data.find(date) == data.end())
+    {
+        std::cout << date << " =>" << value << std::endl;
+        //FAZER CONTA AQUI!
+        return;
+    }
+
+    //imprimir a data e o valor se date nao for date
+    if (date != "date")
+        std::cout << date << " =>" << value << std::endl;
+
+}
+
 int main (int argc, char **argv)
 {
     if (argc != 2)
@@ -121,15 +177,8 @@ int main (int argc, char **argv)
     std::map<std::string, float> data;
     make_data("data.csv", data);
     //print_map(data);
-
-    //Abrir o arquivo de entrada
     std::ifstream file;
-    file.open(argv[1], std::ifstream::in);
-    if (!file.is_open())
-    {
-        std::cerr << "Error: coult not open file." << std::endl;
-        return 1;
-    }
+    open_input_file(argv, file);
 
     //Ler o arquivo de entrada
     std::string line;
@@ -140,9 +189,7 @@ int main (int argc, char **argv)
         std::string value;
         std::getline(ss, date,  '|');
         std::getline(ss, value, '|');
-        date = date.substr(0, date.size() - 1);
 
-        valid_date_format(date);
-        //valid_value(std::strtof(value.c_str(), NULL));
+        line_verify(line, date, value, data);
     }
 }

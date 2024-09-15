@@ -53,7 +53,7 @@ bool    valid_date_format(std::string date)
     }
     if (date[4] != '-' || date[7] != '-')
     {
-        std::cout << "Error: invalid date format. 2 " << std::endl;
+        std::cout << "Error: invalid date format." << std::endl;
         return false;
     }
     for (unsigned int i = 0; i < date.size(); i++)
@@ -62,8 +62,38 @@ bool    valid_date_format(std::string date)
             continue;
         if (!isdigit(date[i]) )
         {
-            std::cout << date[i] << std::endl;
-            std::cout << "Error: invalid date format. 3" << std::endl;
+            std::cout << "Error: invalid date format." << std::endl;
+            return false;
+        }
+    }
+    //mes invalido
+    if (std::atoi(date.substr(5, 2).c_str()) > 12 || std::atoi(date.substr(5, 2).c_str()) < 1)
+    {
+        std::cout << "Error: invalid month." << std::endl;
+        return false;
+    }
+    //dia invalido para cada mes
+    if (std::atoi(date.substr(8, 2).c_str()) > 31 || std::atoi(date.substr(8, 2).c_str()) < 1)
+    {
+        std::cout << "Error: invalid day." << std::endl;
+        return false;
+    }
+    //verificar se o ano é bissexto
+    //caso o resto da divisao do ano por 4 seja diferente de 0
+    //o mes de fevereiro nao pode ter mais que 28 dias
+    if (std::atoi(date.substr(0, 4).c_str()) % 4 != 0)
+    {
+        if (std::atoi(date.substr(5, 2).c_str()) == 2 && std::atoi(date.substr(8, 2).c_str()) > 28)
+        {
+            std::cout << "Error: invalid day. - its a leap year." << std::endl;
+            return false;
+        }
+    }
+    else
+    {
+        if (std::atoi(date.substr(5, 2).c_str()) == 2 && std::atoi(date.substr(8, 2).c_str()) > 29)
+        {
+            std::cout << "Error: invalid day. - its doesnt a leap year, but february has 29 days." << std::endl;
             return false;
         }
     }
@@ -138,7 +168,13 @@ void    open_input_file(char **argv, std::ifstream &file)
 
 void    line_verify(std::string line, std::string date, std::string value, std::map<std::string, float> &data)
 {
-    //verificar se a linha está no formato date|value
+    float result = 0;
+    //verificar se a linha está vazia
+    if (line.empty() || line.find_first_not_of(' ') == std::string::npos)
+    {
+        std::cout << "--------------empty line------------------" << std::endl;
+        return;
+    }
     if (line.find("|") == std::string::npos)
     {
         std::cout << "Error: bad input => " << line << std::endl;
@@ -152,17 +188,52 @@ void    line_verify(std::string line, std::string date, std::string value, std::
     if (!valid_value(value))
         return;
 
-    //verificar se a data está no map
-    if (data.find(date) == data.end())
+    //FAZER CONTA AQUI!
+    //percorrer o map e verificar se a data é maior que a data do map
+    //se for, printar a data e o valor
+
+    //printar caso encontre uma data igual
+    for (std::map<std::string, float>::iterator it = data.begin(); it != data.end(); it++)
     {
-        std::cout << date << " =>" << value << std::endl;
-        //FAZER CONTA AQUI!
-        return;
+        if (it->first == date)
+        {
+            //std::cout << "-----------Data encontrada---------------------" << std::endl;
+            //std::cout << it->first << " => " << it->second << std::endl;
+            result = it->second;
+            break;
+        }
+    }
+    //caso nao encontre a data no map verificar o valor anterior e o valor posterior
+    for (std::map<std::string, float>::iterator it = data.begin(); it != data.end(); it++)
+    {
+        if (it->first > date)
+        {
+            float prev = 0;
+            float next = 0;
+            std::cout << "-----------Data nao encontrada---------------------" << std::endl;
+            std::cout << it->first << " => " << it->second << std::endl;
+            next = it->second;
+            it--;
+            std::cout << it->first << " => " << it->second << std::endl;
+            prev = it->second;
+            std::cout << "--------------------------------" << std::endl;
+
+            //ternario para verificar se o valor anterior ou o valor posterior é o menor
+            //Caso o next seja maior que o prev, o result é o prev
+            //Caso contrario, o result é o next
+            result = next > prev ? prev : next;
+            //std::cout << "next: " << next << " prev: " << prev << " result: " << result << std::endl;
+            break;
+        }
     }
 
     //imprimir a data e o valor se date nao for date
     if (date != "date")
-        std::cout << date << " =>" << value << std::endl;
+    {
+        int value_int = std::strtof(value.c_str(), NULL);
+        result = value_int * result;
+        std::cout << date << " =>" << value << " = " << result << std::endl;
+    }
 
 }
 

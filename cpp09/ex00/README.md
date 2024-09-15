@@ -10,10 +10,10 @@
 ##### Requisitos:
 - [x] O nome do programa deve ser `btc`.
 - [X] O programa deve ler um arquivo CSV contendo os preços do Bitcoin.
-- [ ] Deve calcular o valor de Bitcoin de acordo com a data especificada no arquivo de entrada.
-- [ ] Data válida estará sempre no formato: Ano-Mês-Dia.
-- [ ] O arquivo de entrada segue o formato `data | valor`.
-- [ ] Gerar uma mensagem de erro para entradas invalidas ou valores fora do intervalo (0 a 1000).
+- [x] Deve calcular o valor de Bitcoin de acordo com a data especificada no arquivo de entrada.
+- [x] Data válida estará sempre no formato: Ano-Mês-Dia.
+- [x] O arquivo de entrada segue o formato `data | valor`.
+- [x] Gerar uma mensagem de erro para entradas invalidas ou valores fora do intervalo (0 a 1000).
 >O valor válido deve ser um float ou um inteiro positivo, entre 0 e 1000.
 
 ##### Dicas de Estudo:

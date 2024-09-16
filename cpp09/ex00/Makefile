@@ -1,6 +1,6 @@
 NAME = btc
 
-SRCS = src/main.cpp
+SRCS = src/main.cpp src/BitcoinExchange.cpp
 CXX = c++
 
 

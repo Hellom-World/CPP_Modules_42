@@ -14,6 +14,9 @@
 - [x] Data válida estará sempre no formato: Ano-Mês-Dia.
 - [x] O arquivo de entrada segue o formato `data | valor`.
 - [x] Gerar uma mensagem de erro para entradas invalidas ou valores fora do intervalo (0 a 1000).
+- [x] Refatorar colocando as funcoes auxiliares no arquivo BitcoinExchange.{cpp, hpp}.
+- [ ] Verificar os arquivos que devem ser entregues e retirar os que nao sao necessarios.
+- [ ] Refatorar tirando os comentarios para entrega do projeto - FAZER APENAS PARA ENTREGAR.
 >O valor válido deve ser um float ou um inteiro positivo, entre 0 e 1000.
 
 ##### Dicas de Estudo:
@@ -39,7 +42,7 @@
     2012-01-11 | 2147483648
     $>
 
-- [ ] Seu programa deve exibir na saída padrão o resultado do valor multiplicado pela taxa de câmbio de acordo com a data indicada em seu banco de dados.
+- [x] Seu programa deve exibir na saída padrão o resultado do valor multiplicado pela taxa de câmbio de acordo com a data indicada em seu banco de dados.
 > Se a data usada na entrada não existir no seu BD, então você deve usar a data mais próxima contida no seu BD. Tenha cuidado para usar a data mais baixa e não a mais alta.
 
 A seguir, um exemplo de uso do programa:

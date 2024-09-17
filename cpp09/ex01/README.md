@@ -8,7 +8,7 @@
 **Objetivo**: Criar um programa que interprete expressões matemáticas na notação polonesa reversa.
 
 ##### Requisitos:
-- [ ] O nome do programa deve ser RPN
+- [x] O nome do programa deve ser RPN
 - [ ] O programa deve aceitar uma expressao RPN como argumento.
 - [ ] Operadores permitidos: `+ - / *`
 - [ ] Em caso de erro, a mensagem deve ser direcionada para a saída de erro padrão.

@@ -1,6 +1,6 @@
-NAME = Span
+NAME = RPN
 
-SRCS = src/main.cpp src/Span.cpp
+SRCS = src/main.cpp
 CXX = c++
 
 

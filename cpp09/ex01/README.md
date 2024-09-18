@@ -8,6 +8,7 @@
 **Objetivo**: Criar um programa que interprete expressões matemáticas na notação polonesa reversa.
 
 ##### Requisitos:
+> Entregar: Makefile, main.cpp, RPN.{cpp, hpp}
 - [x] O nome do programa deve ser RPN
 - [x] O programa deve aceitar uma expressao RPN como argumento.
 - [x] Operadores permitidos: `+ - / *`

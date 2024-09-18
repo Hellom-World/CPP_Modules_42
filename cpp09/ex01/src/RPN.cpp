@@ -1,10 +1,4 @@
-#ifndef RPN_HPP
-#define RPN_HPP
-
-#include <string>
-#include <stack>
-#include <cstdlib>
-#include <iostream>
+#include "../include/RPN.hpp"
 
 void    printStack(std::stack<int> stack) {
 
@@ -54,6 +48,17 @@ void    show_expression(int a, int b, char op, char **expression) {
         std::cout << "Expression: "<< *expression << std::endl;
 }
 
+void    operation_aux(int a, int b, int c, std::stack<int> &numbers, char op) {
+    a = numbers.top();
+    numbers.pop();
+    verifyEmptyStack(numbers);
+    b = numbers.top();
+    numbers.pop();
+    if (c)
+        show_expression(a, b, op, NULL);
+    numbers.push(b + a);
+}
+
 void    machine_calculator(std::stack<int> &numbers, char **argv, int c) {
 
     int a = 0;
@@ -72,49 +77,17 @@ void    machine_calculator(std::stack<int> &numbers, char **argv, int c) {
                 numbers.push(atoi(argv[1] - 1));
             }
         }
-        if (*argv[1] == '+') {
-            a = numbers.top();
-            numbers.pop();
-            verifyEmptyStack(numbers);
-            b = numbers.top();
-            numbers.pop();
-            if (c)
-                show_expression(a, b, '+', NULL);
-            numbers.push(b + a);
-        }
-        if (*argv[1] == '-') {
-            a = numbers.top();
-            numbers.pop();
-            verifyEmptyStack(numbers);
-            b = numbers.top();
-            numbers.pop();
-            if (c)
-                show_expression(a, b, '-', NULL);
-            numbers.push(b - a);
-        }
-        if (*argv[1] == '*') {
-            a = numbers.top();
-            numbers.pop();
-            verifyEmptyStack(numbers);
-            b = numbers.top();
-            numbers.pop();
-            if (c)
-                show_expression(a, b, '*', NULL);
-            numbers.push(b * a);
-        }
-        if (*argv[1] == '/') {
-            a = numbers.top();
-            numbers.pop();
-            verifyEmptyStack(numbers);
-            b = numbers.top();
-            numbers.pop();
-            if (c)
-                show_expression(a, b, '/', NULL);
-            numbers.push(b / a);
-        }
+        //identifica o operador e faz a operacao
+        if (*argv[1] == '+')
+            operation_aux(a, b, c, numbers, '+');
+        if (*argv[1] == '-')
+            operation_aux(a, b, c, numbers, '-');
+        if (*argv[1] == '*')
+            operation_aux(a, b, c, numbers, '*');
+        if (*argv[1] == '/')
+            operation_aux(a, b, c, numbers, '/');
         argv[1]++;
     }
     verifyStackSize(numbers);
 }
 
-#endif

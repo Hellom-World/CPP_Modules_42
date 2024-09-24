@@ -8,7 +8,7 @@
 **Objetivo**: Implementar o algoritmo Ford-Johnson para ordenar uma sequência de inteiros usando a técnica merge-insert sort.
 
 ##### Requisitos:
-- [ ] O programa deve ter o nome de PmergeMe
+- [x] O programa deve ter o nome de PmergeMe
 - [ ] O programa deve ordenar uma sequência de inteiros positivos fornecida como argumento.
 - [ ] Seu programda deve usar o algoritmo merge-insert sort para ordenar os inteiros em sequência.
 - [ ] Erros devem ser encaminhados para a saida de erro padrão.

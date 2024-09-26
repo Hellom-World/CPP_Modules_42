@@ -1,9 +1,10 @@
-#include <iostream>
-#include "vector"
-#include "string"
-#include "deque"
-#include "cstdlib"
-#include "cstring"
+#include <iostream> // for cout
+#include "vector" // for vector
+#include "string" // for string
+#include "deque" // for deque
+#include "cstdlib" // for atoi
+#include "cstring" // for strlen
+#include "ctime" // for clock_t
 
 
 
@@ -102,9 +103,19 @@ int main(int argc, char* argv[]) {
         list.push_back(num);
     }
     //merge insert sort c++ 98
-    MergeInsertSort(list);
+    //MergeInsertSort(list);
     
-    //MergeSort(list);
+        // Início da medição de tempo
+    std::clock_t start = std::clock();
+
+    // Chama a função MergeSort
+    MergeSort(list);
+
+    // Fim da medição de tempo
+    std::clock_t end = std::clock();
+
+    // Calcula a duração em segundos
+    double duration = (end - start) / (double)CLOCKS_PER_SEC;
 
 
     //print list c++ 98
@@ -113,4 +124,7 @@ int main(int argc, char* argv[]) {
         std::cout << *it << " ";
     }
     std::cout << std::endl;
+
+    // Imprime o tempo de execução em milissegundos
+    std::cout << "Time: " << duration * 1000 << "ms" << std::endl;
 }

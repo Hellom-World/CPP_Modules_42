@@ -10,7 +10,7 @@
 ##### Requisitos:
 - [x] O programa deve ter o nome de PmergeMe
 - [ ] O programa deve ordenar uma sequência de inteiros positivos fornecida como argumento.
-- [ ] Seu programda deve usar o algoritmo merge-insert sort para ordenar os inteiros em sequência.
+- [ ] Seu programa deve usar o algoritmo merge-insert sort para ordenar os inteiros em sequência.
 - [ ] Erros devem ser encaminhados para a saida de erro padrão.
 - [ ] Deve utilizar dois containers diferentes e ser capaz de lidar com até 3000 números.
 - [ ] exibir o tempo de execução de cada container.

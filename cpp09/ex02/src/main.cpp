@@ -63,6 +63,12 @@ void    MergeSort(std::deque<int>& list) {
    
 }
 
+void    MergeInsertSort(std::deque<int>& list) {
+   std::cout << "MergeInsertSort";
+   //No use list now
+    list.clear();
+}
+
 void verifyNumber(char* argv) {
     int flag = 0;
     
@@ -86,22 +92,21 @@ void verifyMax(char* argv) {
     }
 }
 
-// Merge sort
-int main(int argc, char* argv[]) {
-   //make list with argv to int
-    std::deque<int> list;
+
+
+void    Make_Algorithm(int argc, char* argv[], std::deque<int>& list, int type) {
 
     for (int i = 1; i < argc; i++) {
-        //verify that the string is a number
-        verifyNumber(argv[i]);
+            //verify that the string is a number
+            verifyNumber(argv[i]);
 
-        //convert string to long for verification
-        verifyMax(argv[i]);
+            //convert string to long for verification
+            verifyMax(argv[i]);
 
-        //string to int with atoi
-        int num = atoi(argv[i]);
-        list.push_back(num);
-    }
+            //string to int with atoi
+            int num = atoi(argv[i]);
+            list.push_back(num);
+        }
     //merge insert sort c++ 98
     //MergeInsertSort(list);
     
@@ -109,7 +114,10 @@ int main(int argc, char* argv[]) {
     std::clock_t start = std::clock();
 
     // Chama a função MergeSort
-    MergeSort(list);
+    if (type == 1)
+        MergeSort(list);
+    if (type == 2)
+        MergeInsertSort(list);
 
     // Fim da medição de tempo
     std::clock_t end = std::clock();
@@ -127,4 +135,26 @@ int main(int argc, char* argv[]) {
 
     // Imprime o tempo de execução em milissegundos
     std::cout << "Time: " << duration * 1000 << "ms" << std::endl;
+
+}
+
+// Merge sort
+int main(int argc, char* argv[]) {
+   //make list with argv to int
+    std::deque<int> list;
+    int MergeSort = 1;
+    int MergeInsertSort = 2;
+
+    Make_Algorithm(argc, argv, list, MergeSort);
+    list.clear();
+    Make_Algorithm(argc, argv, list, MergeInsertSort);
+
+
+
+    // Proximas tarefas
+    // 1. Refatorar o código para reutiliza o codigo de ordenação
+    // 2. Implementar o algoritmo de ordenação Merge Insert Sort
+    // 3. Comparar o tempo de execução dos algoritmos de ordenação
+    // 4. Implementar o algoritmo de ordenação Ford-Johnson
+    // 5. Refazer todas as etapas anteriores utilizando a biblioteca vector
 }

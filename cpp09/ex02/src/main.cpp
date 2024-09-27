@@ -5,6 +5,8 @@
 #include "cstdlib" // for atoi
 #include "cstring" // for strlen
 #include "ctime" // for clock_t
+#include "fstream" // for ifstream
+#include "algorithm" // for replace
 
 
 
@@ -63,10 +65,23 @@ void    MergeSort(std::deque<int>& list) {
    
 }
 
+void    InsertSort(std::deque<int>& list) {
+    //implementa o insert sort
+    //https://www.geeksforgeeks.org/insertion-sort/
+    for (size_t i = 1; i < list.size(); i++) {
+        int key = list[i];
+        int j = i - 1;
+        while (j >= 0 && list[j] > key) {
+            list[j + 1] = list[j];
+            j = j - 1;
+        }
+        list[j + 1] = key;
+    }
+}
+
 void    MergeInsertSort(std::deque<int>& list) {
-   std::cout << "MergeInsertSort";
-   //No use list now
-    list.clear();
+   
+   InsertSort(list);
 }
 
 void verifyNumber(char* argv) {
@@ -96,6 +111,8 @@ void verifyMax(char* argv) {
 
 void    Make_Algorithm(int argc, char* argv[], std::deque<int>& list, int type) {
 
+    std::string str;
+    
     for (int i = 1; i < argc; i++) {
             //verify that the string is a number
             verifyNumber(argv[i]);
@@ -115,9 +132,15 @@ void    Make_Algorithm(int argc, char* argv[], std::deque<int>& list, int type) 
 
     // Chama a função MergeSort
     if (type == 1)
+    {
         MergeSort(list);
+        str = "MergeSort";
+    }
     if (type == 2)
+    {
         MergeInsertSort(list);
+        str = "MergeInsertSort";
+    }
 
     // Fim da medição de tempo
     std::clock_t end = std::clock();
@@ -133,9 +156,16 @@ void    Make_Algorithm(int argc, char* argv[], std::deque<int>& list, int type) 
     }
     std::cout << std::endl;
 
-    // Imprime o tempo de execução em milissegundos
-    std::cout << "Time: " << duration * 1000 << "ms" << std::endl;
+    // Imprime o tempo de execução em us
+    std::cout << "Time process with " << argc - 1 << " elements: " << duration * 1000000 << "us and using std::deque with " << str << std::endl;
+    std::cout << std::endl;
+    list.clear();
+}
 
+void    IntNumberGeneration(int howMany) {
+    for (int i = 0; i < howMany; i++) {
+        std::cout << rand() % 1000 << " ";
+    }
 }
 
 // Merge sort
@@ -145,14 +175,16 @@ int main(int argc, char* argv[]) {
     int MergeSort = 1;
     int MergeInsertSort = 2;
 
+    std::cout << std::endl;
+    std::cout << "Elements: " << argc - 1 << std::endl;
     Make_Algorithm(argc, argv, list, MergeSort);
-    list.clear();
+    
     Make_Algorithm(argc, argv, list, MergeInsertSort);
 
-
+    //IntNumberGeneration(3000);
 
     // Proximas tarefas
-    // 1. Refatorar o código para reutiliza o codigo de ordenação
+    // 1. Refatorar main criando uma biblioteca para as funcoes auxiliares
     // 2. Implementar o algoritmo de ordenação Merge Insert Sort
     // 3. Comparar o tempo de execução dos algoritmos de ordenação
     // 4. Implementar o algoritmo de ordenação Ford-Johnson

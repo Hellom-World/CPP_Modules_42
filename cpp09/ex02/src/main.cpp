@@ -80,8 +80,41 @@ void    InsertSort(std::deque<int>& list) {
 }
 
 void    MergeInsertSort(std::deque<int>& list) {
-   
-   InsertSort(list);
+    //merge insert sort
+    //Se a lista for impar, guardar o último elemento
+    int last = 0;
+    if (list.size() % 2 != 0) {
+        last = list.back();
+        list.pop_back();
+    }
+    //Calcular e criar deques para ter 2 elementos em cada a partir da lista
+    size_t arr_deq_size = list.size() / 2;
+    std::deque<int> arr_deq[arr_deq_size];
+    for (size_t i = 0; i < arr_deq_size; i++) {
+        arr_deq[i].push_back(list.front());
+        list.pop_front();
+        arr_deq[i].push_back(list.front());
+        list.pop_front();
+    }
+    //percorrer o array de deques e printar os elementos
+    for (size_t i = 0; i < arr_deq_size; i++) {
+        std::cout << " | ";
+        //printa o primeiro elemento
+        std::cout << arr_deq[i].front() << " , ";
+        //printa o segundo elemento
+        std::cout << arr_deq[i].back();
+        std::cout << " | " << std::endl;
+    }
+
+
+
+
+
+
+    //printa o elemento retirado
+    if (last != 0) {
+        std::cout << "Last: " << last << std::endl;
+    }
 }
 
 void verifyNumber(char* argv) {
@@ -150,11 +183,11 @@ void    Make_Algorithm(int argc, char* argv[], std::deque<int>& list, int type) 
 
 
     //print list c++ 98
-    std::deque<int>::iterator it;
+    /*std::deque<int>::iterator it;
     for (it = list.begin(); it != list.end(); it++) {
         std::cout << *it << " ";
     }
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 
     // Imprime o tempo de execução em us
     std::cout << "Time process with " << argc - 1 << " elements: " << duration * 1000000 << "us and using std::deque with " << str << std::endl;

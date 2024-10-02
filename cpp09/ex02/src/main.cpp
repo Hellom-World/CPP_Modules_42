@@ -87,27 +87,99 @@ void    MergeInsertSort(std::deque<int>& list) {
         last = list.back();
         list.pop_back();
     }
+    
+    std::deque<std::deque<int> > deq_deq;
     //Calcular e criar deques para ter 2 elementos em cada a partir da lista
-    size_t arr_deq_size = list.size() / 2;
-    std::deque<int> arr_deq[arr_deq_size];
-    for (size_t i = 0; i < arr_deq_size; i++) {
-        arr_deq[i].push_back(list.front());
+    size_t deq_size = list.size() / 2;
+    for (size_t i = 0; i < deq_size; i++) {
+        std::deque<int> deq;
+        deq.push_back(list.front());
         list.pop_front();
-        arr_deq[i].push_back(list.front());
+        deq.push_back(list.front());
         list.pop_front();
+        deq_deq.push_back(deq);
     }
-    //percorrer o array de deques e printar os elementos
-    for (size_t i = 0; i < arr_deq_size; i++) {
+    
+    //percorrer o deque de deques e printar os elementos
+    std::cout << "Before Insert Sort" << std::endl;
+    for (size_t i = 0; i < deq_deq.size(); i++) {
         std::cout << " | ";
         //printa o primeiro elemento
-        std::cout << arr_deq[i].front() << " , ";
+        std::cout << deq_deq[i].front() << " , ";
         //printa o segundo elemento
-        std::cout << arr_deq[i].back();
+        std::cout << deq_deq[i].back();
         std::cout << " | " << std::endl;
     }
 
+    //Ordena os elementos de cada deque
+    for (size_t i = 0; i < deq_deq.size(); i++) {
+        InsertSort(deq_deq[i]);
+    }
 
+    //percorrer o deque de deques e printar os elementos
+    std::cout << "After Insert Sort" << std::endl;
+    for (size_t i = 0; i < deq_deq.size(); i++) {
+        std::cout << " | ";
+        //printa o primeiro elemento
+        std::cout << deq_deq[i].front() << " , ";
+        //printa o segundo elemento
+        std::cout << deq_deq[i].back();
+        std::cout << " | " << std::endl;
+    } 
 
+    //Percorre deque e reordena os pares comparando maior numero de cada deque
+    for (size_t i = 0; i < deq_deq.size(); i++) {
+        for (size_t j = i + 1; j < deq_deq.size(); j++) {
+            if (deq_deq[i].back() > deq_deq[j].back()) {
+                std::swap(deq_deq[i], deq_deq[j]);
+            }
+        }
+    }
+
+    //percorrer o deque de deques e printar os elementos
+    std::cout << "After Reorder" << std::endl;
+    for (size_t i = 0; i < deq_deq.size(); i++) {
+        std::cout << " | ";
+        //printa o primeiro elemento
+        std::cout << deq_deq[i].front() << " , ";
+        //printa o segundo elemento
+        std::cout << deq_deq[i].back();
+        std::cout << " | " << std::endl;
+    }
+
+    //Cria um novo deque de nome "S" com os maiores elementos de cada deque
+    std::deque<int> S;
+    for (size_t i = 0; i < deq_deq.size(); i++) {
+        S.push_back(deq_deq[i].back());
+    }
+    //Printar S
+    std::cout << "S = ";
+    for (size_t i = 0; i < S.size(); i++) {
+        std::cout << S[i] << " ";
+    }
+    std::cout << std::endl;
+
+    //Printa os menores elementos de cada deque
+    std::cout << "----pos 1----" << std::endl;
+    for (size_t i = 0; i < deq_deq.size(); i++) {
+        //printa o primeiro elemento
+        std::cout << deq_deq[i].front() << " ";
+    }
+
+    //Criar sequencia de jacobsthal com base no tamanho de deq_deq
+    std::deque<int> jacobsthal;
+    jacobsthal.push_back(0);
+    jacobsthal.push_back(1);
+    for (size_t i = 2; i < deq_deq.size(); i++) {
+        jacobsthal.push_back(jacobsthal[i - 1] + 2 * jacobsthal[i - 2]);
+    }
+    //Printar jacobsthal
+    std::cout << std::endl;
+    std::cout << "Jacobsthal = ";
+    for (size_t i = 0; i < jacobsthal.size(); i++) {
+        std::cout << jacobsthal[i] << " ";
+    }
+    std::cout << std::endl;
 
 
 

@@ -167,7 +167,7 @@ void    MergeInsertSort(std::deque<int>& list) {
     }
 
     //Criar sequencia de jacobsthal com base no tamanho de deq_deq
-    std::deque<int> jacobsthal;
+    std::deque<size_t> jacobsthal;
     jacobsthal.push_back(0);
     jacobsthal.push_back(1);
     for (size_t i = 2; i < deq_deq.size(); i++) {
@@ -180,6 +180,55 @@ void    MergeInsertSort(std::deque<int>& list) {
         std::cout << jacobsthal[i] << " ";
     }
     std::cout << std::endl;
+
+    //Cria uma list de menores elementos de cada deque
+    std::deque<int> Pend;
+    for (size_t i = 0; i < deq_deq.size(); i++) {
+        Pend.push_back(deq_deq[i].front());
+    }
+    //percorre pend e printa os elementos
+    std::cout << "Pend = ";
+    for (size_t i = 0; i < Pend.size(); i++) {
+        std::cout << Pend[i] << " ";
+    }
+    std::cout << std::endl;
+    //Verifica se o tamanho de Pend é igual ao tamanho de jacobsthal
+    if (Pend.size() != jacobsthal.size()) {
+        std::cerr << "Error: Pend size is not equal to Jacobsthal size" << std::endl;
+        exit(1);
+    }
+
+    //percorre Pend
+    for (size_t i = 0; i < Pend.size(); i++) {
+        //Verifica valor de Pend[i] com jacobsthal[i]
+        std::cout << "Pend[" << i << "] = " << Pend[i] << " " << "Jacobsthal[" << i << "] = " << jacobsthal[i] << std::endl;
+        //Verifica valor de S na posição jacobsthal[i]
+        if (jacobsthal[i] < S.size()) {
+            std::cout << "S[" << jacobsthal[i] << "] = " << S[jacobsthal[i]] << std::endl;
+            //Verifica se Pend[i] é menor que S[jacobsthal[i]]
+            if (Pend[i] < S[jacobsthal[i]]) {
+                //Insere Pend[i] na posição jacobsthal[i] de S
+                S.insert(S.begin() + jacobsthal[i], Pend[i]);
+            }
+            else {
+                //Insere Pend[i] na posição jacobsthal[i] + 1 de S
+                S.insert(S.begin() + jacobsthal[i] + 1, Pend[i]);
+            }
+        }
+        else {
+            //pegar o último elemento de S
+            std::cout << "S[" << S.size() - 1 << "] = " << S[S.size() - 1] << std::endl;
+        }
+
+
+    }
+
+
+    //Printar S
+    std::cout << "S = ";
+    for (size_t i = 0; i < S.size(); i++) {
+        std::cout << S[i] << " ";
+    }
 
 
 

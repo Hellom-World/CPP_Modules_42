@@ -1,6 +1,7 @@
 NAME = PmergeMe
 
-SRCS = src/main.cpp
+SRCS = src/main.cpp src/Parser.cpp src/mergeInsertSort.cpp src/mergeSort.cpp \
+src/aux.cpp src/insertSort.cpp
 CXX = c++
 
 

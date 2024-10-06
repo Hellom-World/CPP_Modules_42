@@ -10,7 +10,7 @@ int main (int argc, char **argv)
 
     //Criar um map de dados
     std::map<std::string, float> data;
-    make_data("data.csv", data);
+    make_data("input.csv", data);
 
     //Abrir o arquivo de entrada input.txt
     std::ifstream file;

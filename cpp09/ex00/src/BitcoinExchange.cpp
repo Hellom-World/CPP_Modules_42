@@ -168,6 +168,7 @@ void    open_input_file(char **argv, std::ifstream &file)
 void    line_verify(std::string line, std::string date, std::string value, std::map<std::string, float> &data)
 {
     float result = 0;
+
     //verificar se a linha está vazia
     if (line.empty() || line.find_first_not_of(' ') == std::string::npos)
     {
@@ -192,6 +193,7 @@ void    line_verify(std::string line, std::string date, std::string value, std::
     //printar caso encontre uma data igual
     for (std::map<std::string, float>::iterator it = data.begin(); it != data.end(); it++)
     {
+        
         if (it->first == date)
         {
             //std::cout << "-----------Data encontrada---------------------" << std::endl;
@@ -202,7 +204,9 @@ void    line_verify(std::string line, std::string date, std::string value, std::
     }
     //caso nao encontre a data no map verificar o valor anterior e o valor posterior
     for (std::map<std::string, float>::iterator it = data.begin(); it != data.end(); it++)
-    {
+    {   
+        if (it->first == date)
+            break;
         //caso a data seja menor que a data do map
         if (it->first > date)
         {
@@ -234,8 +238,9 @@ void    line_verify(std::string line, std::string date, std::string value, std::
     //imprimir a data e o valor se date nao for date
     if (date != "date")
     {
-        int value_int = std::strtof(value.c_str(), NULL);
-        result = value_int * result;
+        float value_float = std::strtof(value.c_str(), NULL);
+        
+        result = value_float * result;
         std::cout << date << " =>" << value << " = " << result << std::endl;
     }
 

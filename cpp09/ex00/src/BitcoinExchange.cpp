@@ -20,6 +20,12 @@ bool open_file(std::ifstream &file, const char *filename, int flag)
         std::cerr << "Error: coult not open file." << std::endl;
         return false;
     }
+    //Caso o arquivo esteja vazio
+    if (file.peek() == std::ifstream::traits_type::eof())
+    {
+        std::cerr << "Error: file is empty." << std::endl;
+        return false;
+    }
 
     std::cout << filename << " opened successfully." << std::endl;
     return true;

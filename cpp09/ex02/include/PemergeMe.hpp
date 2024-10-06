@@ -21,5 +21,22 @@ void    verifyNumber(char* str);
 void    verifyMax(char* str);
 void    aux_print_pairs(std::deque<std::deque<int> >* deq_deq);
 void    aux_print_firsts(std::deque<std::deque<int> >* deq_deq);
+void    keep_last(std::deque<int>* list, int* last);
+void    Make_Algorithm(std::deque<int>* list, int type);
+void    Order_verify_list(std::deque<int>& list);
+
+
+
+// Vector
+
+void    aux_print_list_vec(std::vector<int>& list);
+void    Merge_vec(std::vector<int>* left, std::vector<int>* right, std::vector<int>* list);
+void    MergeSort_vec(std::vector<int>* list);
+void    InsertSort_vec(std::vector<int>& list);
+void    MergeInsertSort_vec(std::vector<int>* list);
+void    Parser_vec(int argc, char* argv[], std::vector<int>* list);
+void    keep_last_vec(std::vector<int>* list, int* last);
+void    Make_Algorithm_vec(std::vector<int>* list, int type);
+void    Order_verify_list_vec(std::vector<int>& list);
 
 #endif

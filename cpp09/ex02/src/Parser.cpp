@@ -37,3 +37,17 @@ void    Parser(int argc, char* argv[], std::deque<int>* list) {
     }
 }
 
+
+void    Parser_vec(int argc, char* argv[], std::vector<int>* list) {
+    for (int i = 1; i < argc; i++) {
+        //verify that the string is a number
+        verifyNumber(argv[i]);
+
+        //convert string to long for verification
+        verifyMax(argv[i]);
+
+        //string to int with atoi
+        int num = atoi(argv[i]);
+        list->push_back(num);
+    }
+}

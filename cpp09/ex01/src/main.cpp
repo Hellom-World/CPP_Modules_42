@@ -18,13 +18,9 @@ int main(int argc, char **argv) {
     //faz o tratamento do input
     parserInput(argv[1]);
 
-
-
     //faz o calculo
     machine_calculator(numbers, argv, debug);
 
-    //verifica se a stack tem um unico elemento
-    verifyStackSize(numbers);
     //print a stack
     printStack(numbers);
 
